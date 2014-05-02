@@ -1,6 +1,7 @@
 class IncomingMailsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
+ def create
  Rails.logger.info params
     message = Message.new(
       :to => params[:envelope][:to],
