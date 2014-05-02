@@ -3,7 +3,7 @@ class IncomingMailsController < ApplicationController
 
  def create
 #Rails.logger.info params
-    @message = Emails.new(
+    @message = Email.new(
       :to => params[:envelope][:to],
       :from => params[:envelope][:from],
       :subject => params[:headers]['Subject'],
