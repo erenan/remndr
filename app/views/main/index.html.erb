@@ -1,0 +1,25 @@
+<h1>Welcome to RMNDR!</h1>
+<p>When you want to remember a link to visit later or set a quick reminder just send an e-mail!</p>
+
+  <% if user_signed_in? %>
+   <p> Here are your links and reminders </p>
+   <table style="width:800px">
+		<tr>
+			<th>Saved links</th>
+			<th>Reminders</th>
+		</tr>
+
+		<tr>
+  			<td><%= render 'links' %></td>
+ 			<td><%= render 'reminders' %></td>
+		</tr>
+	</table>
+
+  <% else %>
+    
+    <p> <%= link_to "Sign up!", new_user_registration_path %>, is easy!. You just need an e-mail address</p>
+    <p> If you already have an account <%= link_to "Sign in", new_user_session_path %> </p>
+
+  <% end %>
+
+

@@ -1,0 +1,9 @@
+<% @links.each do |l| %>
+
+  <h3><%= link_to l.title, l.url %> </h3>
+    <b>Created</b>: <%= l.created_at.to_date.to_formatted_s(:long_ordinal) %> ||
+    <b>Expires</b>: <%= l.expire_date %>
+    <%= button_to "delete", {:controller => :links,
+      :action => 'destroy', :id => l.id }, :method => :delete %>
+
+<% end %>

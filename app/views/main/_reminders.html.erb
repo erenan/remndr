@@ -1,0 +1,9 @@
+<% @rem.each do |r| %>
+
+<h3><%= r.title %> </h3>
+    <b>What?</b> <%= r.body %><br>
+    <b>Due</b>: <%= r.remind_date.to_date.to_formatted_s(:long_ordinal) %> ||
+    <b>Created</b>: <%= r.created_at.to_date.to_formatted_s(:long_ordinal) %>
+    <%= button_to "delete", r , :method => :delete %>
+
+<% end %>
