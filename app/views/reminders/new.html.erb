@@ -1,0 +1,32 @@
+<% if @rem.errors.any? %>
+  <h2>The following errors prevented your note from saving:</h2>
+  <ul>
+  <% @rem.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+<h1>Add a new Note to remember</h1>
+<%= form_for @rem do |f| %>
+  <fieldset>
+    <legend>Note to remember</legend>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :Content %>
+      <%= f.text_field :body %>
+    </div>
+    <div>
+      <%= f.label "Remind date (optional)" %>
+      <%= f.text_field :remind_date %>
+    </div>
+    <div>
+      <%= f.label "Expire date (optional)" %>
+      <%= f.text_field :expire_date %>
+    </div>
+
+  </fieldset>
+  <%= f.submit %>
+<% end %>

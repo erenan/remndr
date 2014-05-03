@@ -1,7 +1,13 @@
 class EmailReceiver < Incoming::Strategies::CloudMailin
   
   def receive(mail)
-    puts %(Got message from #{mail.to.first} with subject "#{mail.subject}")
+    
+    @link=Link.new
+    @link.title=mail.subject
+    @link.url=mail.body
+    @link.user_id=current_user.id
+    @link.save
+
   end
 
 end

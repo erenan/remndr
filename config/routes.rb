@@ -3,10 +3,7 @@ Rmndr::Application.routes.draw do
   root 'main#index'
   resources :links
   resources :reminders
-  
-  Rails.application.routes.draw do
-    post '/emails' => 'emails#create'
-  end
+  post '/emails' => 'emails#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

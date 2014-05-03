@@ -1,9 +1,28 @@
-<% @rem.each do |r| %>
+<% if @rem == nil %>
+	<p> You don't have any notes stored yet... you can add one below </p>
 
-<h3><%= r.title %> </h3>
-    <b>What?</b> <%= r.body %><br>
-    <b>Due</b>: <%= r.remind_date.to_date.to_formatted_s(:long_ordinal) %> ||
-    <b>Created</b>: <%= r.created_at.to_date.to_formatted_s(:long_ordinal) %>
-    <%= button_to "delete", r , :method => :delete %>
+<% else %>
+
+	<% @rem.each do |r| %>
+
+		<h3><%= r.title %> </h3>
+    	<b>What?</b> <%= r.body %><br>
+    	
+    	<% if r.remind_date == nil %>
+    		<b> No due date </b> ||
+    	<% else %>
+    		<b>Due</b>: <%= r.remind_date.to_date.to_formatted_s(:long_ordinal) %> ||
+    	<% end %>
+
+    	<% if r.expire_date == nil %>
+    		<b> No expire date </b> ||
+    	<% else %>
+    		<b>Expires</b>: <%= r.expire_date.to_date.to_formatted_s(:long_ordinal) %> ||
+    	<% end %>
+
+    	<b>Created</b>: <%= r.created_at.to_date.to_formatted_s(:long_ordinal) %>   
+
+    	<%= button_to "delete", r , :method => :delete %>
+	<% end %>
 
 <% end %>
