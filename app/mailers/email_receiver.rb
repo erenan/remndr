@@ -6,5 +6,5 @@ class EmailReceiver < Incoming::Strategies::CloudMailin
 
 end
 
-req = Rack::Request.new(env)
-result = EmailReceiver.receive(req)
+#req = Rack::Request.new(env)
+#result = EmailReceiver.receive(req)
