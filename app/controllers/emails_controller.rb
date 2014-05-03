@@ -1,5 +1,6 @@
 class EmailsController < ApplicationController
-  
+before_action :authenticate_user! 
+
   def create
     if EmailReceiver.receive(request)
       render :json => { :status => 'ok' }, :status => 200

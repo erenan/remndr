@@ -1,4 +1,5 @@
 class RemindersController < ApplicationController
+before_action :authenticate_user!
 
 	def destroy
 
@@ -7,5 +8,9 @@ class RemindersController < ApplicationController
 		redirect_to :back
 
 	end
+
+
+
+
 
 end
