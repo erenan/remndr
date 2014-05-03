@@ -2,11 +2,13 @@ class EmailReceiver < Incoming::Strategies::CloudMailin
   
   def receive(mail)
     
-    @link=Link.new
-    @link.title=mail.subject
-    @link.url=mail.body
-    @link.user_id=3
-    @link.save
+    Link.new(title: mail.subject, url: 'http://test.com', user_id: 1).save
+
+    #@link=Link.new
+    #@link.title=mail.subject
+    #@link.url=mail.body
+    #@link.user_id=1
+    #@link.save
 
   end
 

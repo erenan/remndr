@@ -1,13 +1,10 @@
 class EmailsController < ApplicationController
+skip_before_filter :verify_authenticity_token
 
   def create
-    if EmailReceiver.receive(request)
+    EmailReceiver.receive(request)
       redirect_to :root
-      #render :json => { :status => 'ok' }, :status => 200
-    else
-      redirect_to :root
-      #render :json => { :status => 'rejected' }, :status => 403
-    end
+
   end
 
 end
