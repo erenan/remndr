@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
 
 has_many :links
 has_many :reminders
+has_many :messages
 
 end

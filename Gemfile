@@ -54,6 +54,8 @@ gem 'bcrypt'
 
 gem 'rails_12factor', group: :production
 
+gem 'incoming'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
