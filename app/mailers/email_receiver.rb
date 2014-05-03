@@ -5,7 +5,7 @@ class EmailReceiver < Incoming::Strategies::CloudMailin
     @link=Link.new
     @link.title=mail.subject
     @link.url=mail.body
-    @link.user_id=current_user.id
+    @link.user_id=3
     @link.save
 
   end
