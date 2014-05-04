@@ -8,4 +8,12 @@ has_many :links
 has_many :reminders
 has_many :messages
 
+
+	def self.which_one(query)
+
+		first(:conditions => ["email = :query", query: "%#{query}%"])
+
+	end
+
+
 end

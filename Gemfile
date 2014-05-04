@@ -49,6 +49,8 @@ end
 # Use devise
 gem 'devise'
 
+gem 'mail'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
