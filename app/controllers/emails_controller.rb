@@ -14,7 +14,7 @@ skip_before_filter :verify_authenticity_token
 =end
 
 	@from=params[:envelope][:from]
-    @user=User.first(:conditions => ["email = :query", query: @from])
+    @user=User.which_one(@from)
 
     if @user == nil
    		render :text => 'Received... but user doesn\'t exists', :status => 200
@@ -34,5 +34,6 @@ skip_before_filter :verify_authenticity_token
    
 
   end
+
 
 end

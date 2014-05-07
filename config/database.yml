@@ -6,9 +6,12 @@
 
 development:
   adapter: postgresql
- # database: db/development.sqlite3
+  encoding: unicode
+  database: remmber_dev
   pool: 5
   timeout: 5000
+  #username: remmber_test
+  #password:
 
 
 # Warning: The database defined as "test" will be erased and
@@ -22,7 +25,7 @@ test:
 
 production:
   adapter: postgresql
- # encoding: unicode
+  encoding: unicode
   pool: 5
   timeout: 5000
 

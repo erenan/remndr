@@ -11,8 +11,8 @@ has_many :messages
 
 	def self.which_one(query)
 
-		first(:conditions => ["email = :query", query: "%#{query}%"])
-
+		first(:conditions => ["email = :query", query: query])
+			
 	end
 
 
