@@ -1,11 +1,11 @@
 <% if @links == nil %>
-	<p> You don't have any links stored yet... you can add one below </p>
+	<p> You don't have any links stored yet... you can add one above </p>
 
 <% else %>
 
 	<% @links.each do |l| %>
 
-  		<h3><%= link_to l.title, l.url %> </h3>
+  		<h3><%= link_to l.title, l.url, :target => '_blank' %> </h3>
     	<b>Created</b>: <%= l.created_at.to_date.to_formatted_s(:long_ordinal) %> ||
     	
     	<% if l.expire_date == nil %>

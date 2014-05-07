@@ -9,6 +9,7 @@
 
    <p> Here are your links and reminders </p>
    <table style="width:800px">
+
 		<tr>
 			<th>Links for later</th>
 			<th>Notes</th>
@@ -19,7 +20,7 @@
       <td><%= link_to "Add a note to remember", new_reminder_path %></td>
     </tr>
 
-		<tr>
+		<tr valign="TOP">
   		<td><%= render 'links' %></td>
  			<td><%= render 'reminders' %></td>
 		</tr>

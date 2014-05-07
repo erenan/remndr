@@ -5,7 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-puts 'Adding seed links'
+puts 'deleting old content'
+
+Link.delete_all
+Reminder.delete_all
+
+puts 'All old contend deleted!'
+
+
+puts 'Adding seed links/notes'
 link = Link.create title: "Facebook Page",
              url: 'http://Facebook.com',
              hits: 3,
@@ -48,4 +56,4 @@ remind = Reminder.create title: "More Reminders",
              user_id: 2
 
 
-puts 'Done adding stories'
+puts 'Done adding links/notes'
