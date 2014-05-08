@@ -1,36 +1,59 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Plushiness 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20131117
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Rmndr</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<%= stylesheet_link_tag "default", media: "all", "data-turbolinks-track" => true %>
+<%= stylesheet_link_tag "fonts", media: "all"%>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
+
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
   <style>
-	table,th,td
-	{
-	border:1px solid black;
-	}
+  table,th,td
+  {
+  border:1px solid black;
+  }
   </style>
+
+
 
 </head>
 
 <body>
-  <%= image_tag("ReMMber.png", :width=>"400", :alt => "Logo") %>
-  <br>
-  <% if user_signed_in? %>
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
-  <% end %>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+ 
+<font color='white'><p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p></font>
 
 <br>
 
 
 <%= yield %>
 
+
+<div id="stamp" class="container">
+  <div class="hexagon"><span class="icon icon-wrench"></span></div>
+</div>
+<div id="copyright" class="container">
+  <p>&copy; <a href="http://unicrn.com/">unicrn</a>. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+</div>
+
+
 </body>
 </html>
+

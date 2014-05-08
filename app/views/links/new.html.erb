@@ -1,23 +1,38 @@
-<% if @link.errors.any? %>
-  <h2>The following errors prevented your link from saving:</h2>
-  <ul>
-  <% @story.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-</ul>
-<% end %>
-<h1>Add a new link</h1>
-<%= form_for @link do |f| %>
-  <fieldset>
-    <legend>Link to remember</legend>
-    <div>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </div>
-    <div>
-      <%= f.label :url %>
-      <%= f.text_field :url %>
-    </div>
-  </fieldset>
-  <%= f.submit %>
-<% end %>
+<div id="smallwrapper">
+  <div id="remndr-wrapper">
+  
+    <div class="extra2 container">
+      <div class="ebox1">
+        <div class="title">
+          <h2>New Link</h2>
+          <span class="byline">Add a new link to your list</span>
+        </div>
+
+
+          <% if @link.errors.any? %>
+              <h2>The following errors prevented your link from saving:</h2>
+          <ul>
+            <% @link.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+          <% end %>
+
+              <%= form_for @link do |f| %>
+              <fieldset>
+                <div>
+                  <%= f.label :title %>
+                  <%= f.text_field :title %>
+                </div>
+                <div>
+                  <%= f.label :url %>
+                  <%= f.text_field :url %>
+                </div>
+              </fieldset>
+              <%= f.submit %>
+              <% end %>
+
+      </div>
+    </div>     
+  </div>
+</div>

@@ -1,37 +1,147 @@
-<h1>Welcome to ReMND.it!</h1>
-<p>When you want to remember a link to visit later or set a quick reminder just send an e-mail!</p>
 
-  <% if user_signed_in? %>
+<% if user_signed_in? %>
+
+<div id="smallheader-wrapper">
+  <div id="header" class="container">
+    <div id="smalllogo">
+      <h1><a href="#">ReMND.it</a></h1>
+      <span> by <a href="http://templated.co" rel="nofollow">Edgar Rivera</a></span>
+    </div>
+  </div>
+</div>
+
+<% else %>
+
+<div id="header-wrapper">
+  <div id="header" class="container">
+    <div id="logo">
+      <span class="icon icon-envelope"></span>
+      <h1><a href="#">ReMND.it</a></h1>
+      <span> by <a href="http://templated.co" rel="nofollow">Edgar Rivera</a></span>
+    </div>
+    <div id="triangle-up"></div>
+  </div>
+</div>
+
+<% end %>
+
+<div id="menu-wrapper">
+    <div id="menu">
+      <ul>
+
+<!-- This is my RoR code! -->
+        
+        <% if user_signed_in? %>
+          
+          <li><%= link_to "Add a Link", new_link_path %></li>
+          <li><%= link_to "Add a Note", new_reminder_path %></li> 
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+
+        <% else %>
+          <li class="current_page_item"><a href="#About" accesskey="1" title="">About</a></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Sign in", new_user_session_path %></li> 
+             
+        <% end %>
+
+<!-- That was my RoR code -->
+     
+      </ul>
+    </div>
+</div>
+
+<!-- Rails Code -->
+
+<% if user_signed_in? %>
+
+<!-- end Rails Code -->
+
+<div id="smallwrapper">
+  <div id="remndr-wrapper">
   
-  <% if flash[:notice] %>
-    <p class="flash-notice"><%= flash[:notice] %></p>
-  <% end %>
+    <div class="extra2 container">
+      <div class="ebox1">
+        <div class="title">
+          <h2>Here are your most recent links and notes</h2>
+          <span class="byline"></span>
+        </div>
+           
+<!-- Rails Code -->
 
-   <p> Here are your links and reminders </p>
-   <table style="width:800px">
+           <table style="width:800px">
+            <tr>
+              <th>Links for later</th>
+              <th>Notes</th>
+            </tr>
+            
+            <tr>
+              <td><%= link_to "Add a link to remember", new_link_path %></td>
+              <td><%= link_to "Add a note to remember", new_reminder_path %></td>
+            </tr>
 
-		<tr>
-			<th>Links for later</th>
-			<th>Notes</th>
-		</tr>
-    
-    <tr>
-      <td><%= link_to "Add a link to remember", new_link_path %></td>
-      <td><%= link_to "Add a note to remember", new_reminder_path %></td>
-    </tr>
+            <tr valign="TOP">
+              <td><%= render 'links' %></td>
+              <td><%= render 'reminders' %></td>
+            </tr>
+           
+          </table>
 
-		<tr valign="TOP">
-  		<td><%= render 'links' %></td>
- 			<td><%= render 'reminders' %></td>
-		</tr>
-   
-	</table>
+<!-- end of rails code -->
 
-  <% else %>
-    
-    <p> <%= link_to "Sign up!", new_user_registration_path %>, is easy!. You just need an e-mail address</p>
-    <p> If you already have an account <%= link_to "Sign in", new_user_session_path %> </p>
+      </div>      
 
-  <% end %>
+    </div>  
+
+  </div>
+</div>
+
+<!-- Rails code -->
+
+<% else %>
+
+<!-- end of rails code -->
+
+<a name="About">
+<div id="wrapper">
+  <div id="featured-wrapper">
+  
+    <div class="extra2 container">
+      <div class="ebox1">
+        <div class="hexagon"><span class="icon icon-lightbulb"></span></div>
+        <div class="title">
+          <h2>just@remnd.it</h2>
+          <span class="byline">That's the only address you need!</span>
+        </div>
+        <p>Have you ever thought "I'll save the link to that amazing blog post to read it later" and you save it to your bookmarks, tweet it or simply write it down to never get back to it?
+        Not again!, just send it to just@remnd.it and we'll save it for you in your own personal list</p>
+        <p class="button"><%= link_to "Sign up", new_user_registration_path %></p>
+      </div>    
+
+      <div class="ebox2">
+        <div class="hexagon"><span class="icon icon-bullhorn"></span></div>
+        <div class="title">
+          <h2>Not just links</h2>
+          <span class="byline">Actually you can also create notes and reminders!</span>
+        </div>
+        <p>Once that you are registered we'll recognize your e-mails by your address and well redirect your links and notes to your onw lists.
+        If our system detects a Link (starting with http:// or https://) we'll save it to your links list, if we don't see one we'll save your note to the notes list!. Are you ready to start? 
+        And don't worry, nobody will see your e-mails, everything is automatic!</p>
+        <a href="#" class="button"> Sign Up </a>
+        <%= link_to "Sign up", new_user_registration_path %>
+      </div>    
+
+    </div>  
+
+  </div>
+</div>
+
+<!-- Rails code -->
+
+<% end %>
+
+<!-- end of rails code -->
+
+
+
 
 
