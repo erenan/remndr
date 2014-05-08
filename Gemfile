@@ -5,6 +5,7 @@ gem 'rails', '4.0.4'
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 # Use SCSS for stylesheets
@@ -53,8 +54,6 @@ gem 'mail'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
-
-gem 'rails_12factor', group: :production
 
 gem 'incoming'
 
