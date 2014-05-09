@@ -15,7 +15,7 @@
 <div id="header-wrapper">
   <div id="header" class="container">
     <div id="logo">
-      <span class="icon icon-envelope"></span>
+      <span class="icon icon-group"></span>
       <h1><a href="#">ReMND.it</a></h1>
       <span> by <a href="http://templated.co" rel="nofollow">Edgar Rivera</a></span>
     </div>
@@ -36,6 +36,7 @@
           <li><%= link_to "Add a Link", new_link_path %></li>
           <li><%= link_to "Add a Note", new_reminder_path %></li> 
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "Your Account", edit_user_registration_path %>
 
         <% else %>
           <li class="current_page_item"><a href="#About" accesskey="1" title="">About</a></li>
@@ -60,7 +61,7 @@
   <div id="remndr-wrapper">
   
     <div class="extra2 container">
-      <div class="ebox1">
+      <div class="ebox3">
         <div class="title">
           <h2>Here are your most recent links and notes</h2>
           <span class="byline"></span>
@@ -68,20 +69,20 @@
            
 <!-- Rails Code -->
 
-           <table style="width:800px">
+           <table class="center">
             <tr>
               <th>Links for later</th>
               <th>Notes</th>
-            </tr>
-            
-            <tr>
-              <td><%= link_to "Add a link to remember", new_link_path %></td>
-              <td><%= link_to "Add a note to remember", new_reminder_path %></td>
             </tr>
 
             <tr valign="TOP">
               <td><%= render 'links' %></td>
               <td><%= render 'reminders' %></td>
+            </tr>
+
+            <tr valign="TOP">
+              <td> <%= link_to "see all links", controller:"main", action:"links" %> </td>
+              <td> <%= link_to "see all notes", controller:"main", action:"reminders" %> </td>
             </tr>
            
           </table>
@@ -126,8 +127,7 @@
         <p>Once that you are registered we'll recognize your e-mails by your address and well redirect your links and notes to your onw lists.
         If our system detects a Link (starting with http:// or https://) we'll save it to your links list, if we don't see one we'll save your note to the notes list!. Are you ready to start? 
         And don't worry, nobody will see your e-mails, everything is automatic!</p>
-        <a href="#" class="button"> Sign Up </a>
-        <%= link_to "Sign up", new_user_registration_path %>
+        <p class="button"><%= link_to "Sign up", new_user_registration_path %></p>
       </div>    
 
     </div>  

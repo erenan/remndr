@@ -4,6 +4,8 @@ Rmndr::Application.routes.draw do
   resources :links
   resources :reminders
   post '/emails' => 'emails#create'
+  get 'main/links' => 'main#links'
+  get 'main/reminders' => 'main#reminders'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

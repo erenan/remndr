@@ -12,7 +12,15 @@ skip_before_filter :verify_authenticity_token
 
     else
 
-        @content=create_link
+        if parse_link(params[:plain]) == nil
+
+          @content=create_reminder
+
+        else
+
+          @content=create_link
+
+        end
    		
    		  if @content.save
     		  #if EmailReceiver.receive(request) #Unused method with gem "incoming"
@@ -31,6 +39,12 @@ skip_before_filter :verify_authenticity_token
       @body=parse_link(params[:plain])
 
       Link.new(title: params[:headers]['Subject'], url: @body, user_id: @user.id)
+
+  end
+
+  def create_reminder
+
+      Reminder.new(title: params[:headers]['Subject'], body: params[:plain], user_id: @user.id)
 
   end
 

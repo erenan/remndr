@@ -1,7 +1,7 @@
 class LinksController < ApplicationController
   before_action :authenticate_user!
 
-	def destroy
+  def destroy
 		@link=Link.find(params[:id])
 
 		if @link.user.id == current_user.id

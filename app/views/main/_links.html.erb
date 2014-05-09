@@ -9,12 +9,12 @@
     	<b>Created</b>: <%= l.created_at.to_date.to_formatted_s(:long_ordinal) %> ||
     	
     	<% if l.expire_date == nil %>
-    		<b> No expire date </b> ||
+    		<b> No expire date </b>
     	<% else %>
     		<b>Expires</b>: <%= l.expire_date.to_date.to_formatted_s(:long_ordinal) %>
     	<% end %>   
     	
-    	<%= button_to "delete", {:controller => :links,
+    	<%= button_to 'delete', {:controller => :links,
       		:action => 'destroy', :id => l.id }, :method => :delete %>
 
 	<% end %>

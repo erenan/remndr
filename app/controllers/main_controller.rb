@@ -2,18 +2,23 @@ class MainController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
  
   def index
-  	if user_signed_in?
-  		@links=Link.user_links(current_user.id)
-  		@rem=Reminder.user_reminders(current_user.id)
+  	
+    if user_signed_in?
+  		@links=Link.user_links(current_user.id).first(5)
+  		@rem=Reminder.user_reminders(current_user.id).first(5)
   	end
  
   end
 
-  def new
+  def links
+
+      @links=Link.user_links(current_user.id)
 
   end
 
-  def create
+  def reminders
+
+      @rem=Reminder.user_reminders(current_user.id)
 
   end
 

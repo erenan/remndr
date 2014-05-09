@@ -1,0 +1,64 @@
+<div id="smallheader-wrapper">
+  <div id="header" class="container">
+    <div id="smalllogo">
+      <h1><a href="#">ReMND.it</a></h1>
+      <span> by <a href="http://templated.co" rel="nofollow">Edgar Rivera</a></span>
+    </div>
+  </div>
+</div>
+
+<div id="menu-wrapper">
+    <div id="menu">
+      <ul>
+
+<!-- This is my RoR code! -->
+          
+          <li><%= link_to "Add a Link", new_link_path %></li>
+          <li><%= link_to "Add a Note", new_reminder_path %></li> 
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "Your Account", edit_user_registration_path %>
+
+
+<!-- That was my RoR code -->
+     
+      </ul>
+    </div>
+</div>
+
+<div id="smallwrapper">
+  <div id="remndr-wrapper">
+  
+    <div class="extra2 container">
+      <div class="ebox3">
+        <div class="title">
+          <h2>Here are your saved notes</h2>
+          <span class="byline"></span>
+        </div>
+           
+<!-- Rails Code -->
+
+           <table class="centernarrow">
+            <tr>
+              <th>My notes</th>
+            </tr>
+
+            <tr valign="TOP">
+              <td><%= render 'reminders' %></td>
+            </tr>
+
+            <tr valign="TOP">
+              <td> Test </td>
+            </tr>
+           
+          </table>
+
+          <p> <%= link_to "Go Back", :root %> </p>
+
+<!-- end of rails code -->
+
+      </div>      
+
+    </div>  
+
+  </div>
+</div>

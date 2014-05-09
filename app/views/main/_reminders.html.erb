@@ -13,12 +13,13 @@
     	<% else %>
     		<b>Due</b>: <%= r.remind_date.to_date.to_formatted_s(:long_ordinal) %> ||
     	<% end %>
-
+<!--
     	<% if r.expire_date == nil %>
     		<b> No expire date </b> ||
     	<% else %>
     		<b>Expires</b>: <%= r.expire_date.to_date.to_formatted_s(:long_ordinal) %> ||
     	<% end %>
+-->
 
     	<b>Created</b>: <%= r.created_at.to_date.to_formatted_s(:long_ordinal) %>   
 

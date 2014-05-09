@@ -1,0 +1,37 @@
+<div id="smallwrapper">
+  <div id="remndr-wrapper">
+  
+    <div class="extra2 container">
+      <div class="ebox1">
+        <div class="title">
+          <h2>Register to ReMND.it!</h2>
+          <span class="byline">Please use the e-mail account from which you will send your notes!</span>
+        </div>
+
+			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+			  <%= devise_error_messages! %>
+
+			  <div><%= f.label :email %><br />
+			  <%= f.email_field :email, autofocus: true %></div>
+
+			  <div><%= f.label :password %><br />
+			    <%= f.password_field :password, autocomplete: "off" %></div>
+
+			  <div><%= f.label :password_confirmation %><br />
+			    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+			  <div><%= f.submit "Sign up" %></div>
+			<% end %>
+
+			<%= render "devise/shared/links" %>
+         
+
+      </div>
+    </div>     
+  </div>
+</div>
+
+
+
+
+
