@@ -63,7 +63,10 @@
     <div class="extra2 container">
       <div class="ebox3">
         <div class="title">
-          <h2>Here are your most recent links and notes</h2>
+          <h2>Hello <% if @user.name != nil%>
+                    <%= @user.name %>,
+                    <%end%>
+                    here are your most recent links and notes</h2>
           <span class="byline"></span>
         </div>
            
