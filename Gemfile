@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
+gem 'sass-rails', '>= 3.2'
+
+gem 'bootstrap-sass', '~> 3.1.1'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
@@ -38,8 +42,11 @@ group :development, :test do
   gem 'sqlite3'
   gem 'thin'
   gem 'pry'
-  gem 'pry-doc'
   gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer'
+  gem 'pry-debugger'
   gem 'hirb'
   gem 'better_errors'
   gem 'binding_of_caller'
