@@ -163,8 +163,13 @@ footer .nav>li>a:hover {
       
     </div>
 
+        <% if notice || alert %>
+    		     <div class="alert alert-info alert-dismissable">
+  			     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   			       <%= notice %>
 			         <%= alert %>
+			       </div>
+		    <%end%>
     
   </div>
 </nav>
