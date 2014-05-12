@@ -1,14 +1,13 @@
-<div id="smallwrapper">
-  <div id="remndr-wrapper">
-  
-    <div class="extra2 container">
-      <div class="ebox1">
-        <div class="title">
-          <h2>Update your ReMND.it account</h2>
-          <span class="byline">Please use the e-mail account from which you will send your notes!</span>
-        </div>
+<section class="container-fluid" id="section2">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+        <br>
+    <p class="lead">
 
-          <h2>Edit <%= resource_name.to_s.humanize %></h2>
+        <i style="font-size:120px" class="glyphicon glyphicon-user fa-3x"></i>
+        
+          <h2>Edit your account </h2>
+          <!--<h2><%= resource_name.to_s.humanize %></h2>-->
 
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= devise_error_messages! %>
@@ -39,9 +38,10 @@
           <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
           <%= link_to "Go Back", :back %>
-         
 
-      </div>
-    </div>     
+
+    </p>
+        <br> 
+    </div>
   </div>
-</div>
+</section>

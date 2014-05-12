@@ -1,22 +1,25 @@
 <% if @links == nil %>
-	<p> You don't have any links stored yet... you can add one above </p>
+	<p class="lead"> You don't have any links stored yet... you can add one above </p>
 
 <% else %>
 
-	<% @links.each do |l| %>
+<div class="list-group">
 
-  		<h3><%= link_to l.title, l.url, :target => '_blank' %> </h3>
-    	<b>Created</b>: <%= l.created_at.to_date.to_formatted_s(:long_ordinal) %> ||
-    	
-    	<% if l.expire_date == nil %>
-    		<b> No expire date </b>
-    	<% else %>
-    		<b>Expires</b>: <%= l.expire_date.to_date.to_formatted_s(:long_ordinal) %>
-    	<% end %>   
-    	
-    	<%= button_to 'delete', {:controller => :links,
-      		:action => 'destroy', :id => l.id }, :method => :delete %>
+    <% @links.each do |l| %>
 
-	<% end %>
+        <h4 class="list-group-item-heading" align="left"><%= link_to l.title, l.url, :target => '_blank' %> | <%= link_to "See entry", l %></h4>
+        <p class="list-group-item-text" align="left"><b>Created</b>: <%= l.created_at.to_date.to_formatted_s(:long_ordinal) %> ||   
+        <% if l.expire_date == nil %>
+            <b> No expire date </b>
+        <% else %>
+            <b>Expires</b>: <%= l.expire_date.to_date.to_formatted_s(:long_ordinal) %>
+        <% end %></p>
+        
+        <%= button_to 'delete', {:controller => :links,
+            :action => 'destroy', :id => l.id }, :method => :delete %>
+        <br>
+    <% end %>
+
+</div>
 
 <% end %>

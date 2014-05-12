@@ -1,3 +1,55 @@
+<section class="container-fluid" id="section2">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+        <br>
+    <p class="lead">
+      <h2>Add a new note to your list!</h2>
+
+          <% if @rem.errors.any? %>
+              <h2>The following errors prevented your link from saving:</h2>
+          <ul>
+            <% @rem.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+          <% end %>
+
+              <%= form_for @rem do |f| %>
+                <fieldset>
+
+                  <div>
+                    <%= f.label :title %>
+                    <%= f.text_field :title %>
+                  </div>
+                  <div>
+                    <%= f.label :Content %>
+                    <%= f.text_field :body %>
+                  </div>
+                  <div>
+                    <%= f.label "Remind date (optional)" %>
+                    <%= f.text_field :remind_date %>
+                  </div>
+                  <div>
+                    <%= f.label "Expire date (optional)" %>
+                    <%= f.text_field :expire_date %>
+                  </div>
+
+                </fieldset>
+                <%= f.submit %>
+              <% end %>
+
+      <%= link_to "Go Back", :back %>
+
+
+    </p>
+        <br> 
+
+    </div>
+  </div>
+</section>
+
+
+
 <div id="smallwrapper">
   <div id="remndr-wrapper">
   

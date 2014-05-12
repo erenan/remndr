@@ -1,13 +1,9 @@
-<div id="smallwrapper">
-  <div id="remndr-wrapper">
-  
-    <div class="extra2 container">
-      <div class="ebox1">
-        <div class="title">
-          <h2>New Link</h2>
-          <span class="byline">Add a new link to your list</span>
-        </div>
-
+<section class="container-fluid" id="section2">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+        <br>
+    <p class="lead">
+      <h2>Add a new link to remember</h2>
 
           <% if @link.errors.any? %>
               <h2>The following errors prevented your link from saving:</h2>
@@ -32,7 +28,11 @@
               <%= f.submit %>
               <% end %>
 
-      </div>
-    </div>     
+          <%= link_to "Go Back", :back %>
+
+
+    </p>
+        <br> 
+    </div>
   </div>
-</div>
+</section>

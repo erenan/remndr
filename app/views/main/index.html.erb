@@ -1,103 +1,73 @@
 
-<% if user_signed_in? %>
-
-<div id="smallheader-wrapper">
-  <div id="header" class="container">
-    <div id="smalllogo">
-      <h1><a href="#">ReMND.it</a></h1>
-      <span> by <a href="http://templated.co" rel="nofollow">Edgar Rivera</a></span>
-    </div>
-  </div>
-</div>
-
-<% else %>
-
-<div id="header-wrapper">
-  <div id="header" class="container">
-    <div id="logo">
-      <span class="icon icon-group"></span>
-      <h1><a href="#">ReMND.it</a></h1>
-      <span> by <a href="http://templated.co" rel="nofollow">Edgar Rivera</a></span>
-    </div>
-    <div id="triangle-up"></div>
-  </div>
-</div>
-
-<% end %>
-
-<div id="menu-wrapper">
-    <div id="menu">
-      <ul>
-
-<!-- This is my RoR code! -->
-        
-        <% if user_signed_in? %>
-          
-          <li><%= link_to "Add a Link", new_link_path %></li>
-          <li><%= link_to "Add a Note", new_reminder_path %></li> 
-          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to "Your Account", edit_user_registration_path %>
-
-        <% else %>
-          <li class="current_page_item"><a href="#About" accesskey="1" title="">About</a></li>
-          <li><%= link_to "Sign up", new_user_registration_path %></li>
-          <li><%= link_to "Sign in", new_user_session_path %></li> 
-             
-        <% end %>
-
-<!-- That was my RoR code -->
-     
-      </ul>
-    </div>
-</div>
-
-<!-- Rails Code -->
-
-<% if user_signed_in? %>
-
-<!-- end Rails Code -->
-
-<div id="smallwrapper">
-  <div id="remndr-wrapper">
-  
-    <div class="extra2 container">
-      <div class="ebox3">
-        <div class="title">
-          <h2>Hello <% if @user.name != nil%>
-                    <%= @user.name %>,
-                    <%end%>
-                    here are your most recent links and notes</h2>
-          <span class="byline"></span>
-        </div>
            
 <!-- Rails Code -->
 
-           <table class="center">
-            <tr>
-              <th>Links for later</th>
-              <th>Notes</th>
-            </tr>
-
-            <tr valign="TOP">
-              <td><%= render 'links' %></td>
-              <td><%= render 'reminders' %></td>
-            </tr>
-
-            <tr valign="TOP">
-              <td> <%= link_to "see all links", controller:"main", action:"links" %> </td>
-              <td> <%= link_to "see all notes", controller:"main", action:"reminders" %> </td>
-            </tr>
-           
-          </table>
+<% if user_signed_in? %>
 
 <!-- end of rails code -->
 
-      </div>      
+<section class="container-fluid" id="section2">
+  <div class="row">
+    <div class="col-sm-12 col-sm-offset-0 text-center">
 
-    </div>  
+<!-- Rails code -->
 
+          <h2>Hello <% if @user.name != nil%>
+                    <%= @user.name %>,
+                    <%end%>
+          here are your most recent links and notes</h2>
+
+ <div class="col-xs-5 col-sm-5 col-md-5 column">  
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Latest Links</h3>
+            </div>
+            <div class="panel-body">
+              <%= link_to "see all links", controller:"main", action:"links" %>
+              <br>
+              <br>
+              <%= render 'links' %>
+            </div>
+          </div>
+ </div>
+
+ <div class="col-xs-5 col-md-5 column">  
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Latest Notes</h3>
+            </div>
+            <div class="panel-body">
+              <%= link_to "see all notes", controller:"main", action:"reminders" %> 
+              <br>
+              <br>
+              <%= render 'reminders' %>
+            </div>
+          </div>
+ </div>
+
+  <div class="col-xs-2 col-md-2 column">  
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Categories</h3>
+            </div>
+            <div class="panel-body">
+              <%= link_to "Edit Categories", controller:"main", action:"reminders" %> 
+              <br>
+              <br>
+              <%= render 'links' %>
+            </div>
+          </div>
+ </div>
+
+
+<!-- end of rails code -->
+              
+    </div>
   </div>
-</div>
+</section>
 
 <!-- Rails code -->
 
@@ -105,38 +75,88 @@
 
 <!-- end of rails code -->
 
-<a name="About">
-<div id="wrapper">
-  <div id="featured-wrapper">
-  
-    <div class="extra2 container">
-      <div class="ebox1">
-        <div class="hexagon"><span class="icon icon-lightbulb"></span></div>
-        <div class="title">
-          <h2>just@remnd.it</h2>
-          <span class="byline">That's the only address you need!</span>
-        </div>
-        <p>Have you ever thought "I'll save the link to that amazing blog post to read it later" and you save it to your bookmarks, tweet it or simply write it down to never get back to it?
-        Not again!, just send it to just@remnd.it and we'll save it for you in your own personal list</p>
-        <p class="button"><%= link_to "Sign up", new_user_registration_path %></p>
-      </div>    
-
-      <div class="ebox2">
-        <div class="hexagon"><span class="icon icon-bullhorn"></span></div>
-        <div class="title">
-          <h2>Not just links</h2>
-          <span class="byline">Actually you can also create notes and reminders!</span>
-        </div>
-        <p>Once that you are registered we'll recognize your e-mails by your address and well redirect your links and notes to your onw lists.
-        If our system detects a Link (starting with http:// or https://) we'll save it to your links list, if we don't see one we'll save your note to the notes list!. Are you ready to start? 
-        And don't worry, nobody will see your e-mails, everything is automatic!</p>
-        <p class="button"><%= link_to "Sign up", new_user_registration_path %></p>
-      </div>    
-
-    </div>  
-
+<section class="container-fluid" id="section1">
+  <h1 class="text-center v-center"><span class="glyphicon glyphicon-ok"></span> </i>ReMND.it</h1>
+  <h3 class="text-center">Save links to read later, create quick notes about your ideas, change the World!</h3><br>
+  <div class="row">
+      <div class="col-sm-4">
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-2 text-center"><h3>Simple</h3><p>Don't write it down, just send it in an e-mail</p><i class="glyphicon glyphicon-pencil fa-3x"></i></div>
+          </div>
+      </div>
+        <div class="col-sm-4 text-center">
+          
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 text-center"><h3>just@remnd.it</h3><p>The only address you need to remember</p><i class="glyphicon glyphicon-envelope fa-3x"></i></span></div>
+          </div>
+      </div>
+        <div class="col-sm-4 text-center">
+          <div class="row">
+            <div class="col-sm-10 text-center"><h3>Powerful</h3><p>Keep on top of everything you want to remember with personalized categories</p><i class="glyphicon glyphicon-th fa-3x"></i></div>
+          </div>
+      </div>
   </div>
-</div>
+</section>
+
+<section class="container-fluid" id="section2">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+        <h1>What is ReMND.it?</h1>
+        <br>
+    <p class="lead">Have you ever thought "I'll save this link to read it later" or "this is an awesome idea" and you write it down in a note just to never get back to it? Not again!.
+    <p class="lead"> With ReMND.it you can send a quick e-mail to just@remnd.it we'll save it for you in your own personal list in the cloud!</p>
+    <p class="lead">Then, when you have time, you can log-in to your account, form anywhere, see and organize all your notes and links, is that easy!</p>
+
+        <br> 
+        <button type="button" class="btn btn-default btn-lg">
+            <%= link_to "Sign-up", new_user_registration_path %>
+        </button>   
+        <button type="button" class="btn btn-default btn-lg">
+            <a href="#section3">Still want more info :/</a>
+        </button>
+              
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid" id="section3">
+  <h1 class="text-center">So this is how ReMND.it works</h1>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <p class="text-center lead">Vertical scrolling has become a popular and lasting trend in Web design. The question becomes, is it here to stay?</p>
+        <div class="row">
+          <div class="col-xs-6">Some brand-tacular designs even have home page content that is taller that 12,000 pixels. That's a lotta content.</div>
+          <div class="col-xs-6 text-right">Anyhoo, this is just some random blurb of text, and Bootply.com is a playground and code editor for Bootstrap.</div>
+        </div>
+        <p class="text-center">
+          <img src="/assets/example/img_mtnpeople.png" class="img-responsive center-block ">
+        </p>
+        <p class="text-center">
+        <button type="button" class="btn btn-default btn-lg">
+            <%= link_to "Sign-up", new_user_registration_path %>
+        </button>  
+        </p> 
+      </div>
+   </div>
+</section>
+
+<section class="container-fluid" id="section6">
+  <h1 class="text-center">Find us in social media!</h1>
+    <div class="row">
+      <div class="col-sm-1 col-sm-offset-4 col-xs-4 text-center">
+       <i class="fa fa-github fa-4x"></i>
+      </div>
+      <div class="col-sm-1 col-xs-4 text-center">
+        <i class="fa fa-facebook fa-4x"></i>
+      </div>
+      <div class="col-sm-1 col-xs-4 text-center">
+       <i class="fa fa-google-plus fa-4x"></i>
+      </div>
+      <div class="col-sm-1 col-xs-4 text-center">
+       <i class="fa fa-twitter fa-4x"></i>
+      </div>
+   </div>
+</section>
 
 <!-- Rails code -->
 

@@ -1,13 +1,8 @@
-<div id="smallwrapper">
-  <div id="remndr-wrapper">
-  
-    <div class="extra2 container">
-      <div class="ebox1">
-        <div class="title">
-          <h2>Register to ReMND.it!</h2>
-          <span class="byline">Please use the e-mail account from which you will send your notes!</span>
-        </div>
-
+<section class="container-fluid" id="section2">
+  <div class="row">
+  	<div class="col-sm-8 col-sm-offset-2 text-center">
+        <br>
+		<p class="lead">
 			<h2>Sign in</h2>
 
 			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -25,23 +20,12 @@
 			<% end %>
 
 			<%= render "devise/shared/links" %>
-			
 
-      </div>
-    </div>     
+
+		</p>
+        <br> 
+      	<i style="font-size:120px" class="glyphicon glyphicon-home fa-3x"></i>
+      	<p>You're almost home!</p>
+    </div>
   </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</section>

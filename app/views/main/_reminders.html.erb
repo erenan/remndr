@@ -3,27 +3,33 @@
 
 <% else %>
 
-	<% @rem.each do |r| %>
 
-		<h3><%= r.title %> </h3>
-    	<b>What?</b> <%= r.body %><br>
-    	
-    	<% if r.remind_date == nil %>
-    		<b> No due date </b> ||
-    	<% else %>
-    		<b>Due</b>: <%= r.remind_date.to_date.to_formatted_s(:long_ordinal) %> ||
-    	<% end %>
+<div class="list-group">
+
+    <% @rem.each do |r| %>
+
+        <h4 class="list-group-item-heading" align="left"><%= r.title %> | <%= link_to "See entry", r %> </h4>
+        <p class="list-group-item-text" align="left"><b>What?</b><%= r.body %><br>
+        
+        <% if r.remind_date == nil %>
+            <b> No due date </b> ||
+        <% else %>
+            <b>Due</b>: <%= r.remind_date.to_date.to_formatted_s(:long_ordinal) %> ||
+        <% end %>
 <!--
-    	<% if r.expire_date == nil %>
-    		<b> No expire date </b> ||
-    	<% else %>
-    		<b>Expires</b>: <%= r.expire_date.to_date.to_formatted_s(:long_ordinal) %> ||
-    	<% end %>
+        <% if r.expire_date == nil %>
+            <b> No expire date </b> ||
+        <% else %>
+            <b>Expires</b>: <%= r.expire_date.to_date.to_formatted_s(:long_ordinal) %> ||
+        <% end %>
 -->
 
-    	<b>Created</b>: <%= r.created_at.to_date.to_formatted_s(:long_ordinal) %>   
+        <b>Created</b>: <%= r.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
 
-    	<%= button_to "delete", r , :method => :delete %>
-	<% end %>
+        <%= button_to "delete", r , :method => :delete %>
+        <br>
+    <% end %>
+
+</div>
 
 <% end %>

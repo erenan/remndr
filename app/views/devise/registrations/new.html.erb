@@ -1,12 +1,10 @@
-<div id="smallwrapper">
-  <div id="remndr-wrapper">
-  
-    <div class="extra2 container">
-      <div class="ebox1">
-        <div class="title">
-          <h2>Register to ReMND.it!</h2>
-          <span class="byline">Please use the e-mail account from which you will send your notes!</span>
-        </div>
+<section class="container-fluid" id="section2">
+  <div class="row">
+  	<div class="col-sm-8 col-sm-offset-2 text-center">
+        <br>
+		<p class="lead">
+			<h2>Register to ReMND.it</h2>
+			<h3>Remember to use the e-mail address from which you will be sending your notes!</h3>
 
 			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 			  <%= devise_error_messages! %>
@@ -27,14 +25,10 @@
 			<% end %>
 
 			<%= render "devise/shared/links" %>
-         
 
-      </div>
-    </div>     
+
+		</p>
+        <br> 
+    </div>
   </div>
-</div>
-
-
-
-
-
+</section>
