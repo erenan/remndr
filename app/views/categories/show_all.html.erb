@@ -5,19 +5,19 @@
           <h2><% if @user.name != nil%>
                     <%= @user.name %>,
                     <%end%>
-          This are all your links... from latest to oldest</h2>
+          From here you can edit all your categories...</h2>
 
        <div class="col-xs-8 col-sm-8 col-md-8 column">  
 
                 <div class="panel panel-primary">
                   <div class="panel-heading">
-                    <h3 class="panel-title">Recent Notes</h3>
+                    <h3 class="panel-title">Categories</h3>
                   </div>
                   <div class="panel-body">
                     <%= link_to "Go back home!", :root %>
                     <br>
                     <br>
-                    <%= render 'links' %>
+                    <%= render 'categories' %>
                   </div>
                 </div>
        </div>

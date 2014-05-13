@@ -1,6 +1,31 @@
 class LinksController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+
+    @link=Link.find(params[:id])
+
+  end
+
+  def edit
+
+    @link=Link.find(params[:id])
+
+  end
+
+  def update
+
+      @link = Link.find(params[:id])
+      @link.update_attributes(link_params.merge(user_id: current_user.id))
+
+      if @link.save
+         redirect_to :root
+      else
+       render :new
+      end
+
+  end
+
   def destroy
 		@link=Link.find(params[:id])
 
@@ -16,9 +41,9 @@ class LinksController < ApplicationController
 
 	def new
    	 	@link = Link.new
-  	end
+  end
 
-  	def create
+  def create
    		 @link = Link.new(link_params.merge(user_id: current_user.id))
 
     	if @link.save
@@ -26,13 +51,13 @@ class LinksController < ApplicationController
     	else
      	 render :new
     	end
-  	end
+  end
 
- 	 private
+ 	private
   	
-  	def link_params
-  	  params.require(:link).permit(:title, :url, :user_id)
- 	  end
+  def link_params
+  	  params.require(:link).permit(:title, :url, :category_id, :body, :user_id)
+  end
 
 
 end

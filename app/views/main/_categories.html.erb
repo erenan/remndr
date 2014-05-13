@@ -1,0 +1,15 @@
+<% if @categories == nil %>
+	
+	<li>No personal categories yet :(</li>
+
+<% else %>
+
+    <% @categories.each do |c| %>
+
+    	<li><a href="#<%=c.name%>" data-toggle="tab"><%=c.name%></a></li>
+    	<!--<li><%= link_to c.name, :root%></li>-->
+
+    <% end %>
+
+
+<% end %>

@@ -1,0 +1,35 @@
+<section class="container-fluid" id="section2">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+    <br>
+    <br>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= link_to @link.title, @link.url, :target => '_blank' %></h3>
+          </div>
+          <div class="panel-body">
+            <% if @category != nil %>
+            <p class="text-left"><b>Category:</b> <%= @link.category.name %></p>
+            <%end%>
+            <p class="text-left"><b>Original Text:</b> <%= @link.body %></p>
+            <p class="text-left"><b>Identified URL:</b> <%= link_to @link.url, @link.url, :target => '_blank' %></p>
+            <p class="text-left"><b>Created:</b> <%= @link.created_at.to_date.to_formatted_s(:long_ordinal) %></p>        
+            <p class="text-left">
+                <% if @link.updated_at == nil %>
+                    <b> Never updated </b>
+                <% else %>
+                    <b>Updated</b>: <%= @link.updated_at.to_date.to_formatted_s(:long_ordinal) %>
+                <% end %></p>
+                <%= link_to "Edit entry", edit_link_path %>
+                
+                <%= button_to 'delete', {:controller => :links,
+                    :action => 'destroy', :id => @link.id }, :method => :delete %>
+                <%= link_to "Go back", :root %>
+
+          </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

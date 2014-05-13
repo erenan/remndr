@@ -1,3 +1,5 @@
+#Currently not used in V1.0; base for reminder function in V2.0
+
 class RemindersController < ApplicationController
 before_action :authenticate_user!
 

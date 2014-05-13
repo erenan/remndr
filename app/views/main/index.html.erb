@@ -15,53 +15,43 @@
           <h2>Hello <% if @user.name != nil%>
                     <%= @user.name %>,
                     <%end%>
-          here are your most recent links and notes</h2>
+          here are your most recent notes</h2>
 
- <div class="col-xs-5 col-sm-5 col-md-5 column">  
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Latest Links</h3>
-            </div>
-            <div class="panel-body">
-              <%= link_to "see all links", controller:"main", action:"links" %>
-              <br>
-              <br>
-              <%= render 'links' %>
-            </div>
-          </div>
- </div>
+      <div class="col-sm-3 column">  
+      <h3 class="panel-title">My Categories</h3><br>
+      <ul class="text-center nav nav-pills nav-stacked">
+        <li class="active"><a href="#newnotes" data-toggle="tab">Recent Notes</a></li>
+        <%= render 'categories' %>
+        <li><%= link_to "Edit Categories", '/categories/show_all' %></li>
+      </ul>
+      </div>
 
- <div class="col-xs-5 col-md-5 column">  
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Latest Notes</h3>
-            </div>
-            <div class="panel-body">
-              <%= link_to "see all notes", controller:"main", action:"reminders" %> 
-              <br>
-              <br>
-              <%= render 'reminders' %>
-            </div>
-          </div>
- </div>
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="newnotes">
 
-  <div class="col-xs-2 col-md-2 column">  
+       <div class="col-xs-8 col-sm-8 col-md-8 column">  
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Categories</h3>
-            </div>
-            <div class="panel-body">
-              <%= link_to "Edit Categories", controller:"main", action:"reminders" %> 
-              <br>
-              <br>
-              <%= render 'links' %>
-            </div>
-          </div>
- </div>
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Recent Notes</h3>
+                  </div>
+                  <div class="panel-body">
+                    <%= link_to "see all recent entries!", controller:"main", action:"links" %>
+                    <br>
+                    <br>
+                    <%= render 'links' %>
+                  </div>
+                </div>
+       </div>
 
+  </div>
+
+ <%= render 'categorypanes'%>
+
+</div>
 
 <!-- end of rails code -->
               

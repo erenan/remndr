@@ -14,7 +14,7 @@ skip_before_filter :verify_authenticity_token
 
         if parse_link(params[:plain]) == nil
 
-          @content=create_reminder
+          @content=create_note
 
         else
 
@@ -38,13 +38,13 @@ skip_before_filter :verify_authenticity_token
 
       @body=parse_link(params[:plain])
 
-      Link.new(title: params[:headers]['Subject'], url: @body, user_id: @user.id)
+      Link.new(title: params[:headers]['Subject'], url: @body, body: params[:plain], user_id: @user.id)
 
   end
 
-  def create_reminder
+  def create_note
 
-      Reminder.new(title: params[:headers]['Subject'], body: params[:plain], user_id: @user.id)
+      Link.new(title: params[:headers]['Subject'], body: params[:plain], user_id: @user.id)
 
   end
 
