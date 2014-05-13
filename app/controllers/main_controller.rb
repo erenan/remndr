@@ -15,6 +15,7 @@ class MainController < ApplicationController
   def links
 
       @links=Link.user_links(current_user.id)
+      @user=current_user
 
   end
 
