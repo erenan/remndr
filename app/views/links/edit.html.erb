@@ -1,45 +1,49 @@
-<section class="container-fluid" id="section2">
+<section class="container-fluid" id="section6">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 text-center">
         <br>
-    <p class="lead">
-      <h2>Add a new link to remember</h2>
 
-          <% if @link.errors.any? %>
-              <h2>The following errors prevented your link from saving:</h2>
-          <ul>
-            <% @link.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-          <% end %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Add a new note</h3>
+          </div>
+          <div class="panel-body">
 
-              <%= form_for @link do |f| %>
-              <fieldset>
-                <div>
-                  <%= f.label :title %>
-                  <%= f.text_field :title %>
-                </div>
-                <div>
-                  <%= f.label :url %>
-                  <%= f.text_field :url %>
-                </div>
-                <div>
-                  <%= f.label :body %>
-                  <%= f.text_field :body %>
-                </div>
-                <div>
-                  <%= f.label :Category %>
-                  <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
-                </div>
-              </fieldset>
-              <%= f.submit %>
-              <% end %>
+              <p class="lead">
+                    <% if @link.errors.any? %>
+                        <h2>The following errors prevented your link from saving:</h2>
+                    <ul>
+                      <% @link.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                      <% end %>
+                    </ul>
+                    <% end %>
+                        <%= form_for @link do |f| %>
+                        <fieldset>
+                          <div>
+                            <%= f.label :title %>
+                            <%= f.text_field :title %>
+                          </div>
+                          <div>
+                            <%= f.label :url %>
+                            <%= f.text_field :url %>
+                          </div>
+                          <div>
+                            <%= f.label :body %>
+                            <%= f.text_field :body %>
+                          </div>
+                          <div>
+                            <%= f.label :Category %>
+                            <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
+                          </div>
+                        </fieldset>
+                        <%= f.submit %>
+                        <% end %>
 
-          <%= link_to "Go Back", :back %>
-
-
-    </p>
+                    <%= link_to "Go Back", :back %>
+              </p>
+            </div>
+          </div>
         <br> 
     </div>
   </div>

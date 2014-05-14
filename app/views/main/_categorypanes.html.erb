@@ -7,7 +7,7 @@
 
 	       	<div class="col-xs-8 col-sm-8 col-md-8 column">  
 
-	                <div class="panel panel-primary">
+	                <div class="panel panel-default">
 	                  <div class="panel-heading">
 	                    <h3 class="panel-title"><%=c.name%></h3>
 	                  </div>
@@ -19,16 +19,27 @@
 							    <% c.links.each do |l| %>
 
 							        <h4 class="list-group-item-heading" align="left"><%= link_to l.title, l.url, :target => '_blank' %> | <%= link_to "See entry", l %></h4>
+
+							        <p class="list-group-item-text" align="left"><b>Category</b>: 
+							        <% if l.category == nil %>
+							            <b> Not yet categorized </b>
+							        <% else %>
+							            <%= l.category.name %>
+							        <% end %></p>
+
+
+
 							        <p class="list-group-item-text" align="left"><b>Created</b>: <%= l.created_at.to_date.to_formatted_s(:long_ordinal) %> ||   
-								        <% if l.updated_at == nil %>
-								            <b> Never updated </b>
-								        <% else %>
-								            <b>Updated</b>: <%= l.updated_at.to_date.to_formatted_s(:long_ordinal) %>
-								        <% end %></p>
+							        <% if l.updated_at == nil %>
+							            <b> Never updated </b>
+							        <% else %>
+							            <b>Updated</b>: <%= l.updated_at.to_date.to_formatted_s(:long_ordinal) %>
+							        <% end %></p>
 							        
 							        <%= button_to 'delete', {:controller => :links,
 							            :action => 'destroy', :id => l.id }, :method => :delete %>
 							        <br>
+
 							    <% end %>
 
 							 </div>

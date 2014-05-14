@@ -6,25 +6,34 @@
 
 <!-- end of rails code -->
 
-<section class="container-fluid" id="section2">
+<section class="container-fluid" id="section6">
   <div class="row">
     <div class="col-sm-12 col-sm-offset-0 text-center">
 
 <!-- Rails code -->
 
-          <h2>Hello <% if @user.name != nil%>
+          <h2 class="text-center">Hello <% if @user.name != nil%>
                     <%= @user.name %>,
                     <%end%>
           here are your most recent notes</h2>
 
 
       <div class="col-sm-3 column">  
-      <h3 class="panel-title">My Categories</h3><br>
-      <ul class="text-center nav nav-pills nav-stacked">
-        <li class="active"><a href="#newnotes" data-toggle="tab">Recent Notes</a></li>
-        <%= render 'categories' %>
-        <li><%= link_to "Edit Categories", '/categories/show_all' %></li>
-      </ul>
+      
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">My Categories</h3>
+              </div>
+              <div class="panel-body">
+                <ul class="text-center nav nav-pills nav-stacked">
+                  <li class="active"><a href="#newnotes" data-toggle="tab">Recent Notes</a></li>
+                  <%= render 'categories' %>
+                  <li><%= link_to "Edit Categories", '/categories/show_all' %></li>
+                </ul>
+
+              </div>
+            </div>
+
       </div>
 
 
@@ -32,9 +41,9 @@
 <div class="tab-content">
   <div class="tab-pane active" id="newnotes">
 
-       <div class="col-xs-8 col-sm-8 col-md-8 column">  
+       <div class="col-xs-9 col-sm-9 col-md-9 column">  
 
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="panel-title">Recent Notes</h3>
                   </div>
