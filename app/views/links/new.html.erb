@@ -1,4 +1,4 @@
-<section class="container-fluid" id="section6">
+<section class="container-fluid" id="section2">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 text-center">
         <br>
@@ -10,6 +10,7 @@
           <div class="panel-body">
 
               <p class="lead">
+                    
                     <% if @link.errors.any? %>
                         <h2>The following errors prevented your link from saving:</h2>
                     <ul>
@@ -40,7 +41,8 @@
                         <%= f.submit %>
                         <% end %>
 
-                    <%= link_to "Go Back", :back %>
+                  <%= link_to "Go Back", :back %>
+
               </p>
             </div>
           </div>

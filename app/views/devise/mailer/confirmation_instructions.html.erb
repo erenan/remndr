@@ -1,5 +1,17 @@
-<p>Welcome <%= @email %>!</p>
+<section class="container-fluid" id="section2">
+  <div class="row">
+  	<div class="col-sm-8 col-sm-offset-2 text-center">
+        <br>
+		<p class="lead">
 
-<p>You can confirm your account email through the link below:</p>
+			<p>Welcome <%= @email %>!</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+			<p>You can confirm your account email through the link below:</p>
+
+			<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+		</p>
+        <br> 
+    </div>
+  </div>
+</section>

@@ -8,5 +8,8 @@ belongs_to :category
 		where('user_id = ?', user).order('created_at').reverse_order
 	end
 
+   def self.search_for(query)
+        where('title LIKE :query OR body LIKE :query', query: "%#{query}%")
+   end
 
 end

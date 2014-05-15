@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
-        <title>ReMND.it easy note taking via e-mail!</title>
+        <title>ReMND.it - e-mail your notes!</title>
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -120,7 +120,7 @@ footer .nav>li>a:hover {
 
 <body>
 
-        <nav class="navbar navbar-trans navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-trans navbar-fixed-top" role="navigation">
   <div class="container">
     
     <div class="navbar-header">
@@ -153,26 +153,24 @@ footer .nav>li>a:hover {
         		<li><a href="#section2">About</a></li>
         		<li><%= link_to "Sign up", new_user_registration_path %></li>
         		<li><%= link_to "Sign in", new_user_session_path %></li>
-        		<li>&nbsp;</li>
+            <li>&nbsp;</li>
       	   </ul>
              
         <% end %>
 
-<!-- That was my RoR code -->	
-      
     </div>
 
-        <% if notice || alert %>
-    		     <div class="alert alert-info alert-dismissable">
-  			     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-  			       <%= notice %>
-			         <%= alert %>
-			       </div>
-		    <%end%>
-    
+            <% if notice || alert %>
+              <%= notice %>
+              <%= alert %>
+           <%end%>
+
   </div>
+
 </nav>
 
+
+</div>
 
 <%= yield %>
 
