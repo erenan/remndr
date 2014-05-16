@@ -10,11 +10,17 @@
             <h3 class="panel-title"><%= link_to @link.title, @link.url, :target => '_blank' %></h3>
           </div>
           <div class="panel-body">
-            <% if @category != nil %>
-            <p class="text-left"><b>Category:</b> <%= @link.category.name %></p>
-            <%end%>
+
             <p class="text-left"><b>Original Text:</b> <%= @link.body %></p>
             <p class="text-left"><b>Identified URL:</b> <%= link_to @link.url, @link.url, :target => '_blank' %></p>
+            
+            <p class="text-left"><b>Category:</b>            
+            <% if @link.category == nil %>
+              <b> Not yet categorized </b>
+            <% else %>
+              <%= @link.category.name %>
+            <% end %></p>
+
             <p class="text-left"><b>Created:</b> <%= @link.created_at.to_date.to_formatted_s(:long_ordinal) %></p>        
             <p class="text-left">
                 <% if @link.updated_at == nil %>

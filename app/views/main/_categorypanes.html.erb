@@ -5,7 +5,7 @@
     	<div class="tab-pane" id="<%=c.name%>">
     		
 
-	       	<div class="col-xs-8 col-sm-8 col-md-8 column">  
+	       	<div class="col-sm-9 column">  
 
 	                <div class="panel panel-default">
 	                  <div class="panel-heading">
@@ -20,12 +20,28 @@
 
 							        <h4 class="list-group-item-heading" align="left"><%= link_to l.title, l.url, :target => '_blank' %> | <%= link_to "See entry", l %></h4>
 
-							        <p class="list-group-item-text" align="left"><b>Category</b>: 
+							        <p class="list-group-item-text" align="left"> 
+							<!--This section displays the note "category" and allows for updating directly from the homepage -->
+							            <div align="left">
+							                        
+							                <%= form_for l do |f| %>
+							                    <fieldset>
+							                        <%= f.label :Category %><b>:</b>
+							                        <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
+
+							                        <%= f.submit 'Categorize!' %>
+							                    </fieldset>
+							                <% end %>
+
+							            </div>
+
+							<!--Old static category code NOT CURRENTLY USED
 							        <% if l.category == nil %>
 							            <b> Not yet categorized </b>
 							        <% else %>
 							            <%= l.category.name %>
 							        <% end %></p>
+							-->
 
 
 
