@@ -1,3 +1,5 @@
+<!-- This page renders the high level view of LINKS (Called NOTES in the app), and allows for quick edits in the CATEGORY-->
+
 <% if @links == nil %>
 	<p class="lead"> You don't have any links stored yet... you can add one above </p>
 
@@ -5,29 +7,48 @@
 
 <div class="list-group">
 
-    <% @links.each do |l| %>
+    <% @links.each do |l| %> <!-- will repeat for all the selected links, may be 5 (default at log-in), search, or all -->
 
         <h4 class="list-group-item-heading" align="left"><%= link_to l.title, l.url, :target => '_blank' %> | <%= link_to "See entry", l %></h4>
 
-        <p class="list-group-item-text" align="left"><b>Category</b>: 
+        <p class="list-group-item-text" align="left"><b>Category</b>:
+        
+<!--This section displays the note "category" and allows for updating directly from the homepage -->
+            <div align="left">
+                        
+                <%= form_for l do |f| %>
+                    <fieldset>
+                        <%= f.label :Category %>
+                        <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
+
+                        <%= f.submit 'Categorize!' %>
+                    </fieldset>
+                <% end %>
+
+            </div>
+
+<!--Old static category code NOT CURRENTLY USED
         <% if l.category == nil %>
             <b> Not yet categorized </b>
         <% else %>
             <%= l.category.name %>
         <% end %></p>
+-->
 
+<!-- This section displays more sundry info and adds a DELETE button to destroy the LINK (called NOTE in the app) -->
+            <div align='left'>
+            <p class="list-group-item-text" align="left"><b>Created</b>: <%= l.created_at.to_date.to_formatted_s(:long_ordinal) %> ||   
+            <% if l.updated_at == nil %>
+                <b> Never updated </b>
+            <% else %>
+                <b>Updated</b>: <%= l.updated_at.to_date.to_formatted_s(:long_ordinal) %>
+            <% end %></p>
+            
+                <%= button_to 'delete', {:controller => :links,
+                    :action => 'destroy', :id => l.id }, :method => :delete %>
+                <br>
+            </div>
 
-
-        <p class="list-group-item-text" align="left"><b>Created</b>: <%= l.created_at.to_date.to_formatted_s(:long_ordinal) %> ||   
-        <% if l.updated_at == nil %>
-            <b> Never updated </b>
-        <% else %>
-            <b>Updated</b>: <%= l.updated_at.to_date.to_formatted_s(:long_ordinal) %>
-        <% end %></p>
-        
-        <%= button_to 'delete', {:controller => :links,
-            :action => 'destroy', :id => l.id }, :method => :delete %>
-        <br>
 
     <% end %>
 

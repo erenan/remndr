@@ -1,0 +1,22 @@
+<!-- This is the core of the form to create NEW or EDIT CATEGORIES -->
+
+                      <% if @category.errors.any? %>
+                          <h2>The following errors prevented your category from saving:</h2>
+                      <ul>
+                        <% @category.errors.full_messages.each do |msg| %>
+                          <li><%= msg %></li>
+                        <% end %>
+                      </ul>
+                      <% end %>
+
+                          <%= form_for @category do |f| %>
+                          <fieldset>
+                            <div>
+                              <%= f.label :name %>
+                              <%= f.text_field :name %>
+                            </div>
+                          </fieldset>
+                          <%= f.submit %>
+                          <% end %>
+
+                      <%= link_to "Go Back", :back %>

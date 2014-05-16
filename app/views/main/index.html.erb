@@ -17,7 +17,7 @@
                     <%end%>
           here are your most recent notes</h2>
 
-
+<!-- creates the navigation menu -->
       <div class="col-sm-3 column">  
       
             <div class="panel panel-default">
@@ -42,7 +42,7 @@
       </div>
 
 
-<!-- Tab panes -->
+<!-- Main pane, this display recent links or the results of search-->
 <div class="tab-content">
   <div class="tab-pane active" id="newnotes">
 
@@ -63,7 +63,7 @@
 
   </div>
 
- <%= render 'categorypanes'%>
+ <%= render 'categorypanes'%> <!-- panes called when user selects a category from the navigation menu -->
 
 </div>
 
@@ -78,6 +78,8 @@
 <% else %>
 
 <!-- end of rails code -->
+
+<!-- The rest of the code deals with the landing and info page for the app, no Rails code -->
 
 <section class="container-fluid" id="section1">
   <h1 class="text-center v-center"><span class="glyphicon glyphicon-ok"></span> </i>ReMND.it</h1>
