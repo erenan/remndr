@@ -10,6 +10,7 @@ has_many :messages
 has_many :categories
 
 
+	#Looks for the user based on e-mail address
 	def self.which_one(query)
 
 		first(:conditions => ["email = :query", query: query])

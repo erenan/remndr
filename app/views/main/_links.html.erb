@@ -21,7 +21,7 @@
                         <%= f.label :Category %><b>:</b>
                         <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
 
-                        <%= f.submit 'Categorize!' %>
+                        <%= f.submit 'Categorize!', :class => "btn-custom"%>
                     </fieldset>
                 <% end %>
 

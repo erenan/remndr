@@ -1,29 +1,34 @@
-class EmailsController < ApplicationController
-require 'uri'
-skip_before_filter :verify_authenticity_token
+#This is a custom controller that manages the incoming HTTP POST message coming from Cloudmailin
 
+class EmailsController < ApplicationController
+require 'uri' #method that looks for URLs inside text
+skip_before_filter :verify_authenticity_token #prevents rails from raising an exception as we cannot verify the token
+
+#main method that creates the new Link entry (known as Note in the app)
   def create
 
+#Identify user by her e-mail address
 	  @from=params[:envelope][:from]
     @user=User.which_one(@from)
 
+#If user does not exists it acknowledges that the message was received sucessfully but doesn't do anything else
+#in V2.0 this will trigger the creation of a "invite" delivered by e-mail so the user can sign up for the service and store the message in a temp folder
     if @user == nil
    		render :text => 'Received... but user doesn\'t exists', :status => 200
 
     else
 
-        if parse_link(params[:plain]) == nil
+        if parse_link(params[:plain]) == nil #If no link is detected in the body it creates a plain note entry (i.e. w/o clickable title)
 
           @content=create_note
 
         else
 
-          @content=create_link
+          @content=create_link  #if a URL is detected the Link entry (called note in the app) has a clickable title
 
         end
    		
-   		  if @content.save
-    		  #if EmailReceiver.receive(request) #Unused method with gem "incoming"
+   		  if @content.save #saves content and delivers a success message or a fail message
     			render :text => 'success', :status => 200
     		else
     			render :text => 'Failed', :status => 400
@@ -36,9 +41,9 @@ skip_before_filter :verify_authenticity_token
 
   def create_link
 
-      @body=parse_link(params[:plain])
+      @url=parse_link(params[:plain]) #Extracts URL to create clickable title
 
-      Link.new(title: params[:headers]['Subject'], url: @body, body: params[:plain], user_id: @user.id)
+      Link.new(title: params[:headers]['Subject'], url: @url, body: params[:plain], user_id: @user.id)
 
   end
 
@@ -54,10 +59,12 @@ skip_before_filter :verify_authenticity_token
     @url=URI.extract(raw)
     @url.first
     
+=begin Experimenting with better parsing of links
     #extract the first URL form the email body using REGEX
     #source: https://github.com/matthewrudy/regexpert/blob/master/lib/regexpert.rb
     #@url=raw.scan(/(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix)
     #@url.first
+=end
 
   end
 

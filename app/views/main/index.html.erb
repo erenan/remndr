@@ -1,4 +1,4 @@
-
+<!-- Body of main/landing page-->
            
 <!-- Rails Code -->
 
@@ -27,7 +27,7 @@
               <div class="panel-body">
                 <%= form_tag '/', method: :get do %>
                   <%= search_field_tag :q, params[:q], :placeholder => "Looking for something?" %>
-                  <%= submit_tag "Search" %>
+                  <%= submit_tag "Go!", :class => "btn-custom2" %>
                 <% end %>
                 <br>
                 <ul class="text-center nav nav-pills nav-stacked">
@@ -48,20 +48,20 @@
 
        <div class="col-sm-9 column">  
 
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Recent Notes</h3>
-                  </div>
-                  <div class="panel-body">
-                    <%= link_to "see all recent entries!", controller:"main", action:"links" %>
-                    <br>
-                    <br>
-                    <%= render 'links' %>
-                  </div>
-                </div>
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Recent Notes</h3>
+              </div>
+              <div class="panel-body">
+                <%= link_to "see all recent entries!", controller:"main", action:"links" %>
+                <br>
+                <br>
+                <%= render 'links' %>
+              </div>
+          </div>
        </div>
 
-  </div>
+</div>
 
  <%= render 'categorypanes'%> <!-- panes called when user selects a category from the navigation menu -->
 
@@ -81,51 +81,63 @@
 
 <!-- The rest of the code deals with the landing and info page for the app, no Rails code -->
 
-<section class="container-fluid" id="section1">
-  <h1 class="text-center v-center"><span class="glyphicon glyphicon-ok"></span> </i>ReMND.it</h1>
-  <h3 class="text-center">Save links to read later, create quick notes about your ideas, change the World!</h3><br>
+<section class="container-fluid" id="section6">
+  <h1 class="text-center v-center" color="000000"></i>ReMND.it</h1><br>
   <div class="row">
       <div class="col-sm-4">
           <div class="row">
-            <div class="col-sm-10 col-sm-offset-2 text-center"><h3>Simple</h3><p>Don't write it down, just send it in an e-mail</p><i class="glyphicon glyphicon-pencil fa-3x"></i></div>
+            <div class="col-sm-10 col-sm-offset-2 text-center"><h3>Create</h3><p>Create notes and save links for later on the go, from your mobile, computer, tablet, etc... acess them from everywhere!</p><i class="glyphicon glyphicon-pencil fa-3x"></i></div>
           </div>
       </div>
         <div class="col-sm-4 text-center">
           
           <div class="row">
-            <div class="col-sm-10 col-sm-offset-1 text-center"><h3>just@remnd.it</h3><p>The only address you need to remember</p><i class="glyphicon glyphicon-envelope fa-3x"></i></span></div>
+            <div class="col-sm-10 col-sm-offset-1 text-center"><h3>just@remnd.it</h3><p>Send your notes to this e-mail address... that's it, there is nothin else to remember! <br> We will save them for you</p><i class="glyphicon glyphicon-envelope fa-3x"></i></span></div>
           </div>
       </div>
         <div class="col-sm-4 text-center">
           <div class="row">
-            <div class="col-sm-10 text-center"><h3>Powerful</h3><p>Keep on top of everything you want to remember with personalized categories</p><i class="glyphicon glyphicon-th fa-3x"></i></div>
+            <div class="col-sm-10 text-center"><h3>Organize</h3><p>Stay on top of everything by creatig personal categories and organizing your notes! <br>Be creative!</p><i class="glyphicon glyphicon-th fa-3x"></i></div>
           </div>
       </div>
   </div>
+  <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <br>
+        <br>
+        <button type="button" class="btn btn-default btn-lg">
+            <%= link_to "Sign-up", new_user_registration_path %>
+        </button> 
+        <button type="button" class="btn btn-default btn-lg">
+            <a href="#section4">Tell me more!</a>
+        </button>
+      </div> 
+  </div>
 </section>
 
-<section class="container-fluid" id="section2">
+<section class="container-fluid" id="section4">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 text-center">
-        <h1>What is ReMND.it?</h1>
+        <h1>So what is ReMND.it?</h1>
         <br>
-    <p class="lead">Have you ever thought "I'll save this link to read it later" or "this is an awesome idea" and you write it down in a note just to never get back to it? Not again!.
-    <p class="lead"> With ReMND.it you can send a quick e-mail to just@remnd.it we'll save it for you in your own personal list in the cloud!</p>
-    <p class="lead">Then, when you have time, you can log-in to your account, form anywhere, see and organize all your notes and links, is that easy!</p>
+    <p class="lead">For people that want to quickly save notes, links and thoughts on the go, without the hazle of learning or downloading a new app, ReMND.it offers a new way to do it by using the power of e-mail!.</p><br>
+
+     <p class="lead">That's it, e-mail, it doesn't mater if you use Gmail, Outlook, desktop or mobile. it will work! and the best thing is that there is only one address to remember "just@remnd.it".</p> <br>
+
+     <p class="lead">That's it, no login, no password and no apps are required to save notes on the go. altough you still need to sign up at least once, se we can recognize your e-mail address ;)</p><br>
+
+    <p class="lead">Once that you have some time you can come here, on your phone, desktop or tablet, and see you notes, organize them by categories and get stuff done!, are you ready to start?</p>
 
         <br> 
         <button type="button" class="btn btn-default btn-lg">
-            <%= link_to "Sign-up", new_user_registration_path %>
+            <%= link_to "Sign me up!", new_user_registration_path %>
         </button>   
-        <button type="button" class="btn btn-default btn-lg">
-            <a href="#section3">Still want more info :/</a>
-        </button>
               
     </div>
   </div>
 </section>
 
-<section class="container-fluid" id="section3">
+<section class="container-fluid" id="section2">
   <h1 class="text-center">So this is how ReMND.it works</h1>
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
@@ -144,24 +156,18 @@
         </p> 
       </div>
    </div>
-</section>
-
-<section class="container-fluid" id="section6">
-  <h1 class="text-center">Find us in social media!</h1>
-    <div class="row">
-      <div class="col-sm-1 col-sm-offset-4 col-xs-4 text-center">
-       <i class="fa fa-github fa-4x"></i>
-      </div>
-      <div class="col-sm-1 col-xs-4 text-center">
-        <i class="fa fa-facebook fa-4x"></i>
-      </div>
-      <div class="col-sm-1 col-xs-4 text-center">
-       <i class="fa fa-google-plus fa-4x"></i>
-      </div>
-      <div class="col-sm-1 col-xs-4 text-center">
-       <i class="fa fa-twitter fa-4x"></i>
-      </div>
-   </div>
+   <br>
+   <div class="row">
+     <h1 class="text-center">Where to find us?</h1>
+      <div class="row">
+        <div class="col-sm-1 col-sm-offset-5 col-xs-4 text-center">
+         <a href="https://github.com/erenan/remndr"><i class="fa fa-github fa-4x"></i></a>
+        </div>
+        <div class="col-sm-1 col-xs-4 text-center">
+         <a href="http://twitter.com/ReMNDit"><i class="fa fa-twitter fa-4x"></i></a>
+        </div>
+     </div>
+    </div>
 </section>
 
 <!-- Rails code -->

@@ -1,4 +1,5 @@
-
+<!-- This page generates the category panels that are linked to the Navigation panel in the main page-->
+<!-- Dinamically generates a panel for each user category -->
 
     <% @categories.each do |c| %>
 
@@ -29,7 +30,7 @@
 							                        <%= f.label :Category %><b>:</b>
 							                        <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
 
-							                        <%= f.submit 'Categorize!' %>
+							                        <%= f.submit 'Categorize!', :class => "btn-custom"%>
 							                    </fieldset>
 							                <% end %>
 
@@ -42,8 +43,6 @@
 							            <%= l.category.name %>
 							        <% end %></p>
 							-->
-
-
 
 							        <p class="list-group-item-text" align="left"><b>Created</b>: <%= l.created_at.to_date.to_formatted_s(:long_ordinal) %> ||   
 							        <% if l.updated_at == nil %>
