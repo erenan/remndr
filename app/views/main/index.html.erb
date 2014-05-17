@@ -26,8 +26,10 @@
               </div>
               <div class="panel-body">
                 <%= form_tag '/', method: :get do %>
-                  <%= search_field_tag :q, params[:q], :placeholder => "Looking for something?" %>
-                  <%= submit_tag "Go!", :class => "btn-custom2" %>
+                <div class="input-group">
+                  <%= search_field_tag :q, params[:q], :placeholder => "Looking for something?"%>
+                  <%= submit_tag "Go!", :class =>"btn btn-default" %>
+                </div>
                 <% end %>
                 <br>
                 <ul class="text-center nav nav-pills nav-stacked">
