@@ -9,6 +9,11 @@ belongs_to :category
 		where('user_id = ?', user).order('created_at').reverse_order
 	end
 
+	#Retrieves the links associated with a specific user, older first
+	def self.old_user_links(user)
+		where('user_id = ?', user).order('created_at')
+	end
+
     #Runs a search with the keywords passed through the search box in Index.html.erb
     def self.search_for(query)
         where('title LIKE :query OR body LIKE :query', query: "%#{query}%").order('created_at').reverse_order

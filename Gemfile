@@ -37,7 +37,7 @@ group :doc do
 end
 
 group :development, :test do 
-  gem 'sqlite3'
+  gem 'pg'
   gem 'thin'
   gem 'pry'
   gem 'pry-rails'
@@ -61,6 +61,8 @@ gem 'mail'
 gem 'bcrypt'
 
 gem 'incoming'
+
+gem 'high_voltage'
 
 # Use unicorn as the app server
 # gem 'unicorn'

@@ -14,10 +14,19 @@ class MainController < ApplicationController
  
   end
 
+  #Looks for all of the links from the user to display them
   def links
 
-      @links=Link.user_links(current_user.id)
       @user=current_user
+      @links=Link.user_links(current_user.id)
+
+  end
+
+  #Looks for all of the links from the user to display them, but orders them from older to more recent
+  def old_links
+
+      @user=current_user
+      @links=Link.old_user_links(current_user.id)
 
   end
 
