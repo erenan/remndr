@@ -8,7 +8,7 @@ skip_before_filter :verify_authenticity_token #prevents rails from raising an ex
   def create
 
 #Identify user by her e-mail address
-	  @from=params[:envelope][:from]
+	  @from=params[:headers]['Return-Path']
     @user=User.which_one(@from)
 
 #If user does not exists it acknowledges that the message was received sucessfully but doesn't do anything else
