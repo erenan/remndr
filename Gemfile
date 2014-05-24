@@ -6,6 +6,7 @@ gem 'rails', '4.0.4'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 # Use SCSS for stylesheets

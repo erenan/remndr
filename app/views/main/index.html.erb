@@ -25,11 +25,15 @@
                 <h3 class="panel-title">Navigation</h3>
               </div>
               <div class="panel-body">
+              <div class="col-sm-12 column">  
                 <%= form_tag '/', method: :get do %>
                 <div class="input-group">
-                  <%= search_field_tag :q, params[:q], :placeholder => "Looking for something?"%>
+                  <%= search_field_tag :q, params[:q], :placeholder => "Search", :class => "form-control"%>
+                  <span class="input-group-btn">
                   <%= submit_tag "Go!", :class =>"btn btn-default" %>
+                  </span>
                 </div>
+              </div>
                 <% end %>
                 <br>
                 <ul class="text-center nav nav-pills nav-stacked">
@@ -55,8 +59,10 @@
                 <h3 class="panel-title">Recent Notes</h3>
               </div>
               <div class="panel-body"> See all entries:
-                <%= link_to "New first", controller:"main", action:"links", :class => "btn btn-primary" %> ||
-                <%= link_to "Old first", controller:"main", action:"old_links", :class => "btn btn-primary" %> 
+              <div row>
+                <%= link_to "New first", main_links_path, method:'get', :class => "btn btn-default btn-xs" %>
+                <%= link_to "Old first", main_old_links_path, method:'get', :class => "btn btn-default btn-xs" %>
+              </div> 
                 <br>
                 <br>
                 <%= render 'links' %>
@@ -108,12 +114,8 @@
       <div class="col-sm-8 col-sm-offset-2 text-center">
         <br>
         <br>
-        <button type="button" class="btn btn-default btn-lg">
-            <%= link_to "Sign-up", new_user_registration_path %>
-        </button> 
-        <button type="button" class="btn btn-default btn-lg">
-            <a href="#section4">Tell me more!</a>
-        </button>
+            <%= link_to "Sign-up", new_user_registration_path, :class=>"btn btn-default btn-lg"%>
+            <%= link_to "Tell me more!", '#section4', :class=>"btn btn-default btn-lg"%>
       </div> 
   </div>
 </section>
@@ -132,10 +134,9 @@
     <p class="lead">Once that you have some free time you can come here, on your phone, desktop or tablet, and see you notes, organize them by categories and get stuff done!, are you ready to start?</p>
 
         <br> 
-        <button type="button" class="btn btn-default btn-lg">
-            <%= link_to "Sign me up!", new_user_registration_path %>
-        </button>   
-              
+        <p class="text-center">
+            <%= link_to "Sign-up", new_user_registration_path, :class=>"btn btn-default btn-lg"%>
+        </p>      
     </div>
   </div>
 </section>
@@ -148,12 +149,10 @@
         <div class="row">
           <div class="col-xs-4">I am a newcomer to the development world, I have a little bit of experience with iOS development and a lot of experience with video games… mostly playing them =P. If you want to know more about me you can find my bio <a href="www.edgarrivera.com">here</a>.</div>
           <div class="col-xs-4">ReMND.it is a project that originated during my Back End Web Development course at <a href=:"https://generalassemb.ly">General Assembly</a>. Interestingly enough I came with the idea for it when I noticed that I kept mailing ideas for my final project to myself in order to remember them (so meta!)</div>
-          <div class="col-xs-4 text-right">This iteration of ReMND.it is just a V1… or actually more like a beta. I have plans to further develop it and add new functionalities like the ability to receive an e-mail with you notes at the begging of the day (top request during user testing) and the ability to set up reminders via e-mail. keep posted!</div>
+          <div class="col-xs-4 text-right">This iteration of ReMND.it is just a V1... actually more like a beta/alpha version. I have plans to further develop it and add new functionalities like the ability to receive a scheduled e-mail with you notes at the begging of the day (top request during user testing) and the ability to set up other reminders directly via e-mail!. Come back often to see what is new!</div>
         </div>
         <p class="text-center">
-        <button type="button" class="btn btn-default btn-lg">
-            <%= link_to "Sign-up", new_user_registration_path %>
-        </button>  
+            <%= link_to "Sign-up", new_user_registration_path, :class=>"btn btn-default btn-lg"%>
         </p> 
       </div>
    </div>

@@ -7,7 +7,7 @@ validates :name, :user_id, presence: true
 
 	#Retrieves the categories associated with a specific user
 	def self.user_categories(user)
-		where('user_id = ?', user)
+		where('user_id = ?', user).order('created_at').reverse_order
 	end
 
 end
