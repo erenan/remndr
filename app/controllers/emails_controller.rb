@@ -14,7 +14,10 @@ skip_before_filter :verify_authenticity_token #prevents rails from raising an ex
 #If user does not exists it acknowledges that the message was received sucessfully but doesn't do anything else
 #in V2.0 this will trigger the creation of a "invite" delivered by e-mail so the user can sign up for the service and store the message in a temp folder
     if @user == nil
-   		render :text => 'Received... but user doesn\'t exists', :status => 200
+   		
+      MainMailer.welcome_email(@from).deliver
+
+      render :text => 'Received... but user doesn\'t exists', :status => 200
 
     else
 

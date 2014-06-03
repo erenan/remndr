@@ -6,22 +6,26 @@
 
 <% else %>
 
-<div class="list-group">
+<div class="list-group" align='left'>
 
     <% @categories.each do |c| %>
 
         <h4 class="list-group-item-heading" align="left"><%= c.name %> </h4>
-        <p class="list-group-item-text" align="left"><b>Created</b>: <%= c.created_at.to_date.to_formatted_s(:long_ordinal) %> ||   
+        <p class="list-group-item-text" align="left"><b>Created</b>: <%= c.created_at.to_date.to_formatted_s(:long_ordinal) %> <!--||   
         <% if c.updated_at == nil %>
             <b> Never updated </b>
         <% else %>
             <b>Updated</b>: <%= c.updated_at.to_date.to_formatted_s(:long_ordinal) %>
-        <% end %></p>
+        <% end %></p>-->
 
-        <%= link_to "Edit entry", edit_category_path(:id => c.id) %>
+    <div row>
+
+        <%= link_to "Edit entry", edit_category_path(:id => c.id), :class =>"btn btn-default btn-sm" %>
         
-        <%= button_to 'delete', {:controller => :categories,
-            :action => 'destroy', :id => c.id }, :method => :delete %>
+        <%= link_to 'delete', {:controller => :categories,
+            :action => 'destroy', :id => c.id }, :method => :delete, :class =>"btn btn-default btn-sm" %>
+    </div>
+
         <br>
     <% end %>
 

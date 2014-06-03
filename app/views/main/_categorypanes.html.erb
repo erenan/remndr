@@ -30,7 +30,7 @@
 							                        <%= f.label :Category %><b>:</b>
 							                        <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
 
-							                        <%= f.submit 'Categorize!', :class => "btn-custom"%>
+							                        <%= f.submit 'Categorize!', :class => "btn btn-default btn-xs"%>
 							                    </fieldset>
 							                <% end %>
 
@@ -44,6 +44,7 @@
 							        <% end %></p>
 							-->
 
+							    <div align='left'>
 							        <p class="list-group-item-text" align="left"><b>Created</b>: <%= l.created_at.to_date.to_formatted_s(:long_ordinal) %> ||   
 							        <% if l.updated_at == nil %>
 							            <b> Never updated </b>
@@ -52,8 +53,9 @@
 							        <% end %></p>
 							        
 							        <%= button_to 'delete', {:controller => :links,
-							            :action => 'destroy', :id => l.id }, :method => :delete %>
+							            :action => 'destroy', :id => l.id }, :method => :delete, :class =>"btn btn-default btn-sm"%>
 							        <br>
+							    </div>
 
 							    <% end %>
 

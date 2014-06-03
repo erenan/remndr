@@ -33,14 +33,16 @@
                   <%= submit_tag "Go!", :class =>"btn btn-default" %>
                   </span>
                 </div>
+                <br>
               </div>
                 <% end %>
-                <br>
+              <div class="col-sm-12 column">                
                 <ul class="text-center nav nav-pills nav-stacked">
                   <li class="active"><a href="#newnotes" data-toggle="tab">Recent Notes</a></li>
                   <%= render 'categories' %>
                   <li><%= link_to "Edit Categories", '/categories/show_all' %></li>
                 </ul>
+              </div>
 
               </div>
             </div>
@@ -143,12 +145,12 @@
 <section class="container-fluid" id="section2">
   <h1 class="text-center">About</h1>
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
         <p class="text-center lead">ReMND.it was created by Ed Rivera</p>
         <div class="row">
-          <div class="col-xs-4">I am a newcomer to the development world, I have a little bit of experience with iOS development and a lot of experience with video games… mostly playing them =P. If you want to know more about me you can find my bio <a href="www.edgarrivera.com">here</a>.</div>
-          <div class="col-xs-4">ReMND.it is a project that originated during my Back End Web Development course at <a href=:"https://generalassemb.ly">General Assembly</a>. Interestingly enough I came with the idea for it when I noticed that I kept mailing ideas for my final project to myself in order to remember them (so meta!)</div>
-          <div class="col-xs-4 text-right">This iteration of ReMND.it is just a V1... actually more like a beta/alpha version. I have plans to further develop it and add new functionalities like the ability to receive a scheduled e-mail with you notes at the begging of the day (top request during user testing) and the ability to set up other reminders directly via e-mail!. Come back often to see what is new!</div>
+          <div class="col-xs-12 text-center">I am a newcomer to the development world, I have a little bit of experience with iOS development and a lot of experience with video games… mostly playing them =P. If you want to know more about me you can find my bio <a href="www.edgarrivera.com">here</a>.<br><br>
+          ReMND.it is a project that originated during my Back End Web Development course at <a href=:"https://generalassemb.ly">General Assembly</a>. Interestingly enough I came with the idea for it when I noticed that I kept mailing ideas for my final project to myself in order to remember them (so meta!)<br><br>
+          This iteration of ReMND.it is just a V1... actually more like a beta/alpha version. I have plans to further develop it and add new functionalities like the ability to receive a scheduled e-mail with you notes at the begging of the day (top request during user testing) and the ability to set up other reminders directly via e-mail!. Come back often to see what is new!</div>
         </div>
         <p class="text-center">
             <%= link_to "Sign-up", new_user_registration_path, :class=>"btn btn-default btn-lg"%>

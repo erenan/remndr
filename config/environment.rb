@@ -7,7 +7,7 @@ Rmndr::Application.initialize!
 ActionMailer::Base.delivery_method = :smtp
 
 
-=begin THIS WILL BE THE EMAIL IMPLEMENTATION
+#THIS WILL BE THE EMAIL IMPLEMENTATION
 ActionMailer::Base.server_settings = {
    :address => "smtpout.secureserver.net",
    :port => 25,
@@ -16,4 +16,3 @@ ActionMailer::Base.server_settings = {
    :user_name => "just@remnd.it",
    :password => "jinxed62!",
 }
-=end
