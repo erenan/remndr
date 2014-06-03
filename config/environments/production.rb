@@ -79,6 +79,7 @@ Rmndr::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+=begin
   config.action_mailer.smtp_settings = {
   address: "smtpout.secureserver.net",
   port: 465,
@@ -88,6 +89,6 @@ Rmndr::Application.configure do
   user_name: "just@remnd.it",
   password: "jinxed62!"
 }
-
+=end
 
 end
