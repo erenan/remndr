@@ -8,12 +8,12 @@ ActionMailer::Base.delivery_method = :smtp
 
 
 #THIS WILL BE THE EMAIL IMPLEMENTATION
-ActionMailer::Base.server_settings = {
-   :address => "smtpout.secureserver.net",
-   :port => 465,
-   :domain => "remnd.it",
-   :authentication => :login,
-   :user_name => "just@remnd.it",
-   :password => "jinxed62!",
+ActionMailer::Base.smtp_settings = {
+  :address              => 'smtpout.secureserver.net',
+  :port                 => 465,
+  :user_name            => 'just@remnd.it',
+  :password             => 'jinxed62!',
+  :authentication       => :login  
 }
+
 
