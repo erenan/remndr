@@ -11,8 +11,8 @@ ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   :address              => 'smtp.office365.com',
   :port                 => 25,
-  :user_name            => 'just@remnd.it',
-  :password             => 'jinxed62!',
+  :user_name            => ENV["GODADDY_USERNAME"],
+  :password             => ENV["GODADDY_PASSWORD"],
   :authentication       => :login  
 }
 
