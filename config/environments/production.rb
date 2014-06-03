@@ -85,8 +85,8 @@ Rmndr::Application.configure do
   domain: "remnd.it",
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: ENV["GODADDY_USERNAME"],
-  password: ENV["GODADDY_PASSWORD"]
+  user_name: "just@remnd.it",
+  password: "jinxed62!"
 }
 
 
