@@ -61,6 +61,9 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     high_voltage (2.1.0)
     hike (1.2.3)
     hirb (0.7.1)
@@ -188,6 +191,7 @@ DEPENDENCIES
   bootstrap-sass (>= 3.1.1)
   coffee-rails (~> 4.0.0)
   devise
+  figaro
   high_voltage
   hirb
   incoming

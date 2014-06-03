@@ -65,6 +65,8 @@ gem 'incoming'
 
 gem 'high_voltage'
 
+gem 'figaro'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
