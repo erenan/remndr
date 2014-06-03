@@ -81,7 +81,7 @@ Rmndr::Application.configure do
 
   config.action_mailer.smtp_settings = {
   address: "smtpout.secureserver.net",
-  port: 25,
+  port: 465,
   domain: "remnd.it",
   authentication: "plain",
   enable_starttls_auto: true,
