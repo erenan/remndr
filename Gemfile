@@ -45,7 +45,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
-  gem 'pry-debugger'
+  #gem 'pry-debugger'
   gem 'hirb'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -74,4 +74,4 @@ gem 'figaro'
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+#gem 'debugger', group: [:development, :test]

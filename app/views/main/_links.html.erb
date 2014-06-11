@@ -19,7 +19,7 @@
                 <%= form_for l do |f| %>
                     <fieldset>
                         <%= f.label :Category %><b>:</b>
-                        <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
+                        <%= f.collection_select :category_id, Category.user_categories(current_user.id).order(:name),:id,:name, include_blank: true %>
 
                         <%= f.submit 'Categorize!', :class => "btn btn-default btn-xs"%>
                     </fieldset>
