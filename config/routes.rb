@@ -11,4 +11,5 @@ Rmndr::Application.routes.draw do
   get 'main/reminders' => 'main#reminders'
   get '/terms'    => 'high_voltage/pages#show', id: 'terms'
   get 'pages/main' => 'high_voltage/pages#show', id: 'main'
+  get '/updates' => 'high_voltage/pages#show', id: 'updates'
 end
