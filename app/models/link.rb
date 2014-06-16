@@ -19,4 +19,8 @@ belongs_to :category
         where('title LIKE :query OR body LIKE :query', query: "%#{query}%").order('created_at').reverse_order
     end
 
+    def self.yesterday_links(user, date)
+    	where('user_id = ? AND created_at = ?', user, date).order('created_at').reverse_order
+    end
+
 end

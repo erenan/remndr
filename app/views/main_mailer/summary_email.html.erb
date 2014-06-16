@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @user.name%>!</h1>
+    <p>
+      This are your new notes for <%= @date %>:<br>
+    </p>
+
+    <%= render 'mail_links' %>
+
+    <p>
+      Remembers that you can always go to <a HREF="http://www.ReMND.it"> www.ReMND.it </a> to edit, categorize and delete this notes or unsuscribe from these emails
+    </p>
+    <p>Thank you for using ReMND.it!</p>
+    <p>-ReMND.it</p>
+  </body>
+</html>

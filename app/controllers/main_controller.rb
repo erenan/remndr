@@ -30,6 +30,12 @@ class MainController < ApplicationController
 
   end
 
+  def mail_summary
+
+      MainMailer.summary_email(current_user).deliver
+
+  end
+
 #Currently not used in V1.0 base for reminder function in V2.0
 =begin
   def reminders
