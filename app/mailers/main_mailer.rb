@@ -10,7 +10,7 @@ class MainMailer < ActionMailer::Base
   	@user=user
   	@mail=@user.email
   	@date=Date.today-1
-  	@links=Link.yesterday_links(@user.id, @date)
+  	@links=Link.yesterday_links(@user.id)
   	mail(to: @mail, subject: 'Your ReMND activity summary')
 
   end
