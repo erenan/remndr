@@ -32,7 +32,6 @@ class MainController < ApplicationController
 
   def mail_summary
 
-      MainMailer.welcome_email("edgar@edgarrivera.com").deliver
       MainMailer.summary_email(current_user).deliver
 
   end
