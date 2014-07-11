@@ -1,5 +1,5 @@
 Rmndr::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   root 'main#index'
   resources :links
   #resources :reminders #Currently not used in V1.0; base for reminder function in V2.0
@@ -13,4 +13,5 @@ Rmndr::Application.routes.draw do
   get '/terms'    => 'high_voltage/pages#show', id: 'terms'
   get 'pages/main' => 'high_voltage/pages#show', id: 'main'
   get '/updates' => 'high_voltage/pages#show', id: 'updates'
+
 end

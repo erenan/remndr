@@ -23,7 +23,7 @@
 							        <% c.links.each do |l| %>
 
 
-										<h4 class="list-group-item-heading col-sm-offset-1 text-left"><%= link_to l.title, l%></h4>
+										<h4 class="list-group-item-heading col-sm-offset-1 text-left"><%= link_to l.title, l.url, :target => '_blank'%></h4>
 
 
 										        <div class="row">
@@ -67,7 +67,7 @@
 										                   
 										                    <br>
 
-										                    <%= link_to "Visit link", l.url , :target => '_blank', :class => "btn btn-default btn-xs" %>
+										                    <%= link_to "See entry", l , :target => '_blank', :class => "btn btn-default btn-xs" %>
 										                
 										                    <%= link_to 'delete', {:controller => :links,
 										                        :action => 'destroy', :id => l.id }, :method => :delete, :class =>"btn btn-default btn-xs"%>

@@ -51,6 +51,8 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'xray-rails' # cmd+shift+x in mac
+  #gem 'sqlite3'
+  gem 'mailcatcher'
 end
 
 # Use devise
@@ -66,6 +68,8 @@ gem 'incoming'
 gem 'high_voltage'
 
 gem 'figaro'
+
+gem 'rufus-scheduler'
 
 # Use unicorn as the app server
 # gem 'unicorn'
