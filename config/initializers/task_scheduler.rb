@@ -1,10 +1,14 @@
+require 'rufus-scheduler'
+
 scheduler = Rufus::Scheduler.new
 
-scheduler.every('1m') do
+scheduler.cron '5 6 * * *' do
 
-	User.all do |u|
+	@users=User.all
 	
-		if u.mail_send = 1
+	@users.each do |u|
+	#u=User.find(1)
+		if u.mail_send == 1
 	    	MainMailer.summary_email(u).deliver
 	    end
 
