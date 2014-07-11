@@ -7,7 +7,7 @@ Rmndr::Application.initialize!
 ActionMailer::Base.delivery_method = :smtp
 
 
-=begin #THIS IS THE EMAIL IMPLEMENTATION
+#THIS IS THE EMAIL IMPLEMENTATION
 ActionMailer::Base.smtp_settings = {
   :address              => 'smtp.office365.com',
   :port                 => 25,
@@ -15,5 +15,5 @@ ActionMailer::Base.smtp_settings = {
   :password             => ENV["GODADDY_PASSWORD"],
  :authentication       => :login  
 }
-=end
+
 
