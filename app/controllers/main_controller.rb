@@ -32,9 +32,7 @@ class MainController < ApplicationController
 
   def mail_summary
 
-      u=User.find(1)
-
-      MainMailer.summary_email(u).deliver
+      MainMailer.summary_email(current_user).deliver
 
   end
 
