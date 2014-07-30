@@ -22,6 +22,8 @@
 
 							        <% c.links.each do |l| %>
 
+							        <% if l.user_id == current_user.id %>
+
 
 										<h4 class="list-group-item-heading col-sm-offset-1 text-left"><%= link_to l.title, l.url, :target => '_blank'%></h4>
 
@@ -77,6 +79,10 @@
 										        </div>
 										                
 										            <br>
+
+							        <% else %>
+
+							        <% end %>
 
 							        <% end %>
 
