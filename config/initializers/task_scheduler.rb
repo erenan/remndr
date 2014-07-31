@@ -2,7 +2,7 @@ require 'rufus-scheduler'
 
 scheduler = Rufus::Scheduler.new
 
-scheduler.cron '5 6 * * *' do
+scheduler.cron '5 15 * * *' do
 
 	@users=User.all
 	
