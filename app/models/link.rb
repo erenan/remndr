@@ -20,7 +20,7 @@ belongs_to :category
     end
 
     def self.yesterday_links(user)
-    	where('user_id = :user AND created_at BETWEEN :date AND :date2', user: user, date: Date.today, date2: Date.tomorrow)
+    	where('user_id = :user AND created_at BETWEEN :date AND :date2', user: user, date: Date.yesterday, date2: Date.today)
     end
 
 end
