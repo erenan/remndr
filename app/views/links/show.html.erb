@@ -10,7 +10,8 @@
 
           <% if @link.user.id != current_user.id %>
 
-            <h3 class="panel-title">Sorry!, this is not your note, so you can't see it: <%= link_to "Go to main page", :root %></h3> 
+            <h3 class="panel-title">Sorry!, this is not your note, you can't see it<p>
+             <%= link_to "Go to main page", :root %> </h3> 
 
           <% else %>           
 
