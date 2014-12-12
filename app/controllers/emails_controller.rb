@@ -15,7 +15,7 @@ skip_before_filter :verify_authenticity_token #prevents rails from raising an ex
 #in V2.0 this will trigger the creation of a "invite" delivered by e-mail so the user can sign up for the service and store the message in a temp folder
     if @user == nil
    		
-      MainMailer.welcome_email(@from).deliver
+      #MainMailer.welcome_email(@from).deliver
 
       render :text => 'Received... but user doesn\'t exists', :status => 200
 
